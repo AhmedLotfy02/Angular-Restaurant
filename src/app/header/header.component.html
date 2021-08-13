@@ -1,49 +1,53 @@
 <section #search class="search-section">
-  <div class="search-content">
-    <form>
-      <button mat-raised-button>
-        <mat-icon>
-          search
-        </mat-icon>
+    <div class="search-content">
+        <form>
+            <button mat-raised-button (click)="toggleSearchBar()">
+        <mat-icon> search </mat-icon>
       </button>
-      <input type="text"/>
-    </form>
-  </div>
-  <div class="search-back">
-    <button mat-button>
-      <mat-icon>
-        arrow_forward
-      </mat-icon>
+            <input type="text" />
+        </form>
+    </div>
+    <div class="search-back">
+        <button mat-button>
+      <mat-icon> arrow_forward </mat-icon>
     </button>
-  </div>
+    </div>
 </section>
 <section>
-  <div class="header-links">
-    <div class="whats-link">
-      <a href="https://web.whatsapp.com/">
-        <mat-icon>
-          whatsapp
-        </mat-icon>
-      </a>
-    </div>
-    <div class="wishlist-link">
-      <button mat-stroked-button>
-        <mat-icon>
-          favorite
-        </mat-icon>
+    <div class="header-links">
+        <div class="whats-link">
+            <a href="https://web.whatsapp.com/">
+                <mat-icon> whatsapp </mat-icon>
+            </a>
+        </div>
+        <div class="wishlist-link">
+            <button mat-stroked-button>
+        <mat-icon (click)="drawer.toggle()"> favorite </mat-icon>
       </button>
-    </div>
-    <div class="search">
-      <button (click)='onSearch(search)' mat-stroked-button>
-        <mat-icon>
-          search
-        </mat-icon>
+        </div>
+        <div class="search">
+            <button (click)="onSearch(search)" mat-stroked-button>
+        <mat-icon> search </mat-icon>
       </button>
+        </div>
     </div>
-  </div>
-  <div class="logo-img">
-    <img src="../../assets/images/logo-6511d01347fe5c0c0c9f138587bdff10.png">
-  </div>
+    <div class="logo-img">
+        <img src="../../assets/images/logo-6511d01347fe5c0c0c9f138587bdff10.png" />
+    </div>
 </section>
 
-
+<div>
+    <mat-drawer-container class="example-container" autosize>
+    </mat-drawer-container>
+    <div class="example-sidenav-content"></div>
+    <mat-drawer #drawer class="example-sidenav" mode="side">
+        <div class="sider">
+            <a mat-button (click)="drawer.toggle(); toggleSide()">X</a>
+            <br />
+            <a mat-button routerLink="/" routerLinkActive="mat-accent">New</a>
+            <br />
+            <a mat-button routerLink="/" routerLinkActive="mat-accent">لسه هيتعدل فيه</a
+      >
+    </div>
+  </mat-drawer>
+</div>

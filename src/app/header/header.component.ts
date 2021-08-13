@@ -3,18 +3,23 @@ import { Component, OnInit } from '@angular/core';
 @Component({
   selector: 'header',
   templateUrl: './header.component.html',
-  styleUrls: ['./header.component.css']
+  styleUrls: ['./header.component.css'],
 })
 export class HeaderComponent implements OnInit {
+  constructor() {}
 
-  constructor() { }
+  ngOnInit(): void {}
 
-  ngOnInit(): void {
+  onSearch(search: HTMLElement) {
+    //bs mesh h3mlha keda . h3mlha zi fel button sheet
+    search.style.display = 'flex';
   }
-
-
-  onSearch(search: HTMLElement){ //bs mesh h3mlha keda . h3mlha zi fel button sheet
-    search.style.display = "flex";
+  sideState = false;
+  toggleSide() {
+    this.sideState = !this.sideState;
   }
-
+  searchBar = false;
+  toggleSearchBar() {
+    this.searchBar = !this.searchBar;
+  }
 }
