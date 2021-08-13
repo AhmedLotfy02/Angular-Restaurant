@@ -1,0 +1,49 @@
+<section #search class="search-section">
+  <div class="search-content">
+    <form>
+      <button mat-raised-button>
+        <mat-icon>
+          search
+        </mat-icon>
+      </button>
+      <input type="text"/>
+    </form>
+  </div>
+  <div class="search-back">
+    <button mat-button>
+      <mat-icon>
+        arrow_forward
+      </mat-icon>
+    </button>
+  </div>
+</section>
+<section>
+  <div class="header-links">
+    <div class="whats-link">
+      <a href="https://web.whatsapp.com/">
+        <mat-icon>
+          whatsapp
+        </mat-icon>
+      </a>
+    </div>
+    <div class="wishlist-link">
+      <button mat-stroked-button>
+        <mat-icon>
+          favorite
+        </mat-icon>
+      </button>
+    </div>
+    <div class="search">
+      <button (click)='onSearch(search)' mat-stroked-button>
+        <mat-icon>
+          search
+        </mat-icon>
+      </button>
+    </div>
+  </div>
+  <div class="logo-img">
+    <img src="../../assets/images/logo-6511d01347fe5c0c0c9f138587bdff10.png">
+  </div>
+</section>
+
+

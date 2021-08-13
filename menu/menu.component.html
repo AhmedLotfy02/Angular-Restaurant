@@ -1,0 +1,10 @@
+<main>
+  <a class="menu-content" *ngFor="let menu of menus" routerLink="/categoryDetails/?categoryTitle=`{{menu.title}}`">
+    <mat-card>
+      <img src="../../assets/images/{{menu.cover}}" mat-card-image/>
+      <mat-card-actions>
+        {{menu.title}}
+      </mat-card-actions>
+    </mat-card>
+  </a>
+</main>
