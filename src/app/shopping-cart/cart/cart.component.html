@@ -18,6 +18,8 @@
     <div class="example-sidenav-content"></div>
     <mat-drawer #drawer class="example-sidenav" mode="side">
         <div class="sider">
+            <a mat-button (click)="drawer.toggle(); toggleSide()">X</a>
+            <br />
             <a mat-button routerLink="/" routerLinkActive="mat-accent">DashBoard</a>
             <br />
             <a mat-button routerLink="/" routerLinkActive="mat-accent">My Cart</a>
