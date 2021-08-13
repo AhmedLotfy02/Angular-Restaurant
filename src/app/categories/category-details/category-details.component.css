@@ -1,3 +1,4 @@
+@import url("https://fonts.googleapis.com/css2?family=Lalezar&display=swap");
 main {
     width: 100%;
     display: grid;
@@ -85,5 +86,42 @@ p {
 }
 
 .spacer {
-    margin-right: 6em;
+    margin-right: 5em;
+}
+
+.spacerLeft {
+    margin-left: 6em;
+}
+
+.insidePop {
+    display: flex;
+    flex-direction: row-reverse;
+}
+
+.titleClass {
+    font-family: "Lalezar", cursive;
+    font-size: 30px;
+}
+
+.secondgrid {
+    height: 100%;
+    width: 100%;
+    display: flex;
+    flex-flow: row-reverse wrap;
+    justify-content: space-around;
+}
+
+.spacer2 {
+    margin-left: 10em;
+}
+
+.imgPopup {
+    display: block;
+    width: 500px;
+    height: 400px;
+}
+
+.popupPrice {
+    font-size: 20px;
+    color: #f5790c;
 }

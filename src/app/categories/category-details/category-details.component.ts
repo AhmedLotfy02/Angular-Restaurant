@@ -11,6 +11,28 @@ import { NgbModal, ModalDismissReasons } from '@ng-bootstrap/ng-bootstrap';
 })
 export class CategoryDetailsComponent implements OnInit {
   products: Product[] = PRODUCTS;
+  closeResult = '';
+
+  open(content: any) {
+    this.modalService.open(content, { size: 'xl' }).result.then(
+      (result) => {
+        this.closeResult = `Closed with: ${result}`;
+      },
+      (reason) => {
+        this.closeResult = `Dismissed ${this.getDismissReason(reason)}`;
+      }
+    );
+  }
+
+  private getDismissReason(reason: any): string {
+    if (reason === ModalDismissReasons.ESC) {
+      return 'by pressing ESC';
+    } else if (reason === ModalDismissReasons.BACKDROP_CLICK) {
+      return 'by clicking on a backdrop';
+    } else {
+      return `with: ${reason}`;
+    }
+  }
   constructor(
     private cartsService: CartsService,
     private modalService: NgbModal
@@ -22,5 +44,4 @@ export class CategoryDetailsComponent implements OnInit {
     this.cartsService.addToCart(product);
     console.log('This is added by user', this.cartsService.getProducts());
   }
-
 }
