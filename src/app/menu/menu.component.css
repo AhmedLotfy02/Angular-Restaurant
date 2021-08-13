@@ -1,0 +1,26 @@
+main{
+  width:100%;
+  display: grid;
+  grid-template-columns: repeat(auto-fill, minmax(250px, 2fr));
+  gap:10px;
+  justify-items: stretch;
+}
+a{
+  text-decoration: none;
+}
+.menu-content{
+  cursor: pointer;
+  min-width:250px;
+  max-width: 300px;
+  margin:auto;
+}
+
+.menu-content mat-card img{
+  height:200px;
+}
+.menu-content mat-card mat-card-actions{
+  text-align: right;
+  font-size: 18px;
+  height: 16px;
+  line-height: 0px;
+}
