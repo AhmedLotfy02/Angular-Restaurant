@@ -3,31 +3,33 @@
 <cart></cart>
 
 <main>
-  <div class="content" *ngFor="let product of products">
-    <div class="card">
-      <div class="card-cnt">
-        <a>
-          <img class="card-img" src="assets/images/{{product.cover}}" alt=""/>
-        </a>
-        <span class="card-wishlist material-icons">favorite_border</span>
-      </div>
-      <div class="c">
-        <div class="card-title">
-          <p>{{product.title}}</p>
-        </div>
-        <div class="card-body">
-          <button mat-strocked-button (click)="addToCart(product)">
-            <p>العربة</p>
-            <mat-icon>
-              <span class="material-icons">shopping_basket</span>
-            </mat-icon>
-          </button>
-          <p>IQD ${{product.price}}</p>
-
-        </div>
-      </div>
+    <div class="content" *ngFor="let product of products">
+        <mat-card>
+            <div class="card">
+                <div class="card-cnt">
+                    <a>
+                        <img class="card-img" src="assets/images/{{ product.cover }}" alt="" />
+                    </a>
+                    <span class="card-wishlist material-icons">favorite_border</span>
+                </div>
+                <div class="c">
+                    <div class="card-title">
+                        <p>{{ product.title }}</p>
+                    </div>
+                    <div class="card-body">
+                        <button mat-strocked-button (click)="addToCart(product)">
+              <p>العربة</p>
+              <mat-icon>
+                <span class="material-icons">shopping_basket</span>
+              </mat-icon>
+            </button>
+                        <div class="spacer"></div>
+                        <p>IQD ${{ product.price }}</p>
+                    </div>
+                </div>
+            </div>
+        </mat-card>
     </div>
-  </div>
 </main>
 
 <footer></footer>
