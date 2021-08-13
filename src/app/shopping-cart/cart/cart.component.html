@@ -1,13 +1,26 @@
 <div class="cartBtn">
-  <button mat-button>
+    <button mat-button (click)="drawer.toggle(); toggleSide()" *ngIf="!sideState">
     <div class="cart-count">
-      <p >عنصر {{carts.length}}</p>
+      <p>عنصر {{ carts.length }}</p>
       <mat-icon>
         <span class="material-icons">shopping_cart</span>
       </mat-icon>
     </div>
     <div class="cart-price">
-      <p>IQD {{totalPrice}}</p>
+      <p>IQD {{ totalPrice }}</p>
     </div>
   </button>
+</div>
+
+<div>
+    <mat-drawer-container class="example-container" autosize>
+    </mat-drawer-container>
+    <div class="example-sidenav-content"></div>
+    <mat-drawer #drawer class="example-sidenav" mode="side">
+        <div class="sider">
+            <a mat-button routerLink="/" routerLinkActive="mat-accent">DashBoard</a>
+            <br />
+            <a mat-button routerLink="/" routerLinkActive="mat-accent">My Cart</a>
+        </div>
+    </mat-drawer>
 </div>
