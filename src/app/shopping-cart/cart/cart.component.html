@@ -23,6 +23,115 @@
             <a mat-button routerLink="/" routerLinkActive="mat-accent">DashBoard</a>
             <br />
             <a mat-button routerLink="/" routerLinkActive="mat-accent">My Cart</a>
+
+            <button mat-raised-button (click)="open(content)">الطلب</button>
         </div>
     </mat-drawer>
 </div>
+
+<ng-template #content let-modal>
+    <div class="modal-header">
+        <!-- <mat-stepper>
+            <mat-step label="Step 1" state="account">
+                <p>Put down your phones.</p>
+                <div>
+                    <button mat-button matStepperNext>Next</button>
+                </div>
+            </mat-step>
+            <mat-step label="Step 2" state="home">
+                <p>Socialize with each other.</p>
+                <div>
+                    <button mat-button matStepperPrevious>Back</button>
+                    <button mat-button matStepperNext>Next</button>
+                </div>
+            </mat-step>
+            <mat-step label="Step 3" state="payment">
+                <p>You're welcome.</p>
+            </mat-step>
+
+            
+            <ng-template matStepperIcon="account">
+                <mat-icon>account_box</mat-icon>
+            </ng-template>
+            <ng-template matStepperIcon="home">
+                <mat-icon>home</mat-icon>
+            </ng-template>
+            <ng-template matStepperIcon="payment">
+                <mat-icon>payment</mat-icon>
+            </ng-template>
+        </mat-stepper> -->
+        <mat-stepper [linear]="isLinear" #stepper>
+            <mat-step [stepControl]="firstFormGroup" state="account">
+                <form [formGroup]="firstFormGroup">
+                    <ng-template matStepLabel>بياناتك</ng-template>
+                    <mat-form-field appearance="fill">
+                        <mat-label>الاسم</mat-label>
+                        <input matInput formControlName="firstCtrl1" required />
+                    </mat-form-field>
+                    <br />
+                    <mat-form-field appearance="fill">
+                        <mat-label>الموبايل</mat-label>
+                        <input matInput formControlName="firstCtrl2" required />
+                    </mat-form-field>
+                    <div>
+                        <button class="buttonStepper" mat-button matStepperNext>
+              Next
+            </button>
+                    </div>
+                </form>
+            </mat-step>
+            <mat-step [stepControl]="secondFormGroup" state="home">
+                <form [formGroup]="secondFormGroup">
+                    <ng-template matStepLabel>العنوان</ng-template>
+                    <p style="font-size: larger">العراق,بغداد</p>
+                    <mat-form-field appearance="fill">
+                        <mat-label>المنطقة</mat-label>
+                        <input matInput formControlName="secondCtrl1" required />
+                    </mat-form-field>
+                    <br />
+                    <mat-form-field appearance="fill">
+                        <mat-label>العنوان</mat-label>
+                        <input matInput formControlName="secondCtrl2" required />
+                    </mat-form-field>
+
+                    <div>
+                        <button mat-button class="buttonStepper" matStepperPrevious>
+              Back
+            </button>
+                        <button mat-button class="buttonStepper" matStepperNext>
+              Next
+            </button>
+                    </div>
+                </form>
+            </mat-step>
+            <mat-step [stepControl]="thirdFormGroup" state="payment">
+                <form [formGroup]="thirdFormGroup">
+                    <ng-template matStepLabel>الدفع</ng-template>
+                    <mat-form-field appearance="fill">
+                        <mat-label>ملاحظاتك</mat-label>
+                        <input matInput formControlName="thirdCtrl" required />
+                    </mat-form-field>
+                    <div>
+                        <button mat-button class="buttonStepper" matStepperPrevious>
+              Back
+            </button>
+                        <button mat-raised-button class="buttonStepper" type="submit">
+              ارسال طلب
+              <mat-icon>send</mat-icon>
+            </button>
+                    </div>
+                </form>
+            </mat-step>
+
+            <ng-template matStepperIcon="account">
+                <mat-icon class="iconStepper">account_box</mat-icon>
+            </ng-template>
+            <ng-template matStepperIcon="home">
+                <mat-icon class="iconStepper">home</mat-icon>
+            </ng-template>
+            <ng-template matStepperIcon="payment">
+                <mat-icon class="iconStepper">payment</mat-icon>
+            </ng-template>
+        </mat-stepper>
+    </div>
+</ng-template>

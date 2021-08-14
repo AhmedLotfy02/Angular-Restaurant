@@ -1,10 +1,19 @@
 /* You can add global styles to this file, and also import other style files */
 
-html, body { height: 100%; }
-body { background-color: #bebdbd5b; margin: 0; font-family: Roboto, "Helvetica Neue", sans-serif; }
+html,
+body {
+    height: 100%;
+}
 
-header{
+body {
+    background-color: #bebdbd5b;
+    margin: 0;
+    font-family: Roboto, "Helvetica Neue", sans-serif;
+}
+
+
+/* header{
   position:sticky;
   top:0px;
   z-index:10;
-}
+} */

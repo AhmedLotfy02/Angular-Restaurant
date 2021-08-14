@@ -1,5 +1,6 @@
 import { Component, OnInit } from '@angular/core';
-
+import { Observable, OperatorFunction } from 'rxjs';
+import { debounceTime, distinctUntilChanged, map } from 'rxjs/operators';
 @Component({
   selector: 'header',
   templateUrl: './header.component.html',
@@ -15,8 +16,12 @@ export class HeaderComponent implements OnInit {
     search.style.display = 'flex';
   }
   sideState = false;
+  favheart = true;
+  whatsappicon = true;
   toggleSide() {
     this.sideState = !this.sideState;
+    this.favheart = !this.favheart;
+    this.whatsappicon = !this.whatsappicon;
   }
   searchBar = false;
   toggleSearchBar() {

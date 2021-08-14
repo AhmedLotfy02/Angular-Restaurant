@@ -69,3 +69,23 @@ button {
     height: 100%;
     padding: 20px;
 }
+
+.mat-stepper-horizontal {
+    margin-top: 8px;
+}
+
+.mat-form-field {
+    margin-top: 16px;
+}
+
+.buttonStepper {
+    margin-top: 1em;
+    background-color: #f5790c;
+    color: white;
+}
+
+.iconStepper {
+    background-color: #f5790c;
+    color: white;
+    font-size: 50px;
+}
