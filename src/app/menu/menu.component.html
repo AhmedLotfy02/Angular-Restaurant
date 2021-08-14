@@ -1,14 +1,14 @@
-<app-right-side></app-right-side>
-
-<div class="outtergrid">
-    <main>
-        <a class="menu-content" *ngFor="let menu of menus" routerLink="/categoryDetails/?categoryTitle=`{{ menu.title }}`">
+<main>
+    <a class="menu-content" *ngFor="let menu of menus" routerLink="/categoryDetails/?categoryTitle=`{{ menu.title }}`">
+        <mat-card>
             <mat-card>
                 <img src="../../assets/images/{{ menu.cover }}" mat-card-image />
+            </mat-card>
+            <mat-card>
                 <mat-card-actions>
                     {{ menu.title }}
                 </mat-card-actions>
             </mat-card>
-        </a>
-    </main>
-</div>
+        </mat-card>
+    </a>
+</main>

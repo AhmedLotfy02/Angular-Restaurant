@@ -1,11 +1,7 @@
-.outtergrid {
-    margin-right: 20em;
-}
-
 main {
     width: 100%;
     display: grid;
-    grid-template-columns: repeat(auto-fill, minmax(250px, 2fr));
+    grid-template-columns: repeat(3, 2fr);
     gap: 10px;
     justify-items: stretch;
 }
@@ -16,13 +12,12 @@ a {
 
 .menu-content {
     cursor: pointer;
-    min-width: 250px;
-    max-width: 300px;
+    width: 400px;
     margin: auto;
 }
 
 .menu-content mat-card img {
-    height: 200px;
+    height: 350px;
 }
 
 .menu-content mat-card mat-card-actions {
@@ -30,4 +25,5 @@ a {
     font-size: 18px;
     height: 16px;
     line-height: 0px;
+    font-weight: bolder;
 }
