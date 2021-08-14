@@ -13,7 +13,14 @@
                         <a>
                             <img class="card-img" src="assets/images/{{ product.cover }}" alt="" (click)="open(content)" />
                         </a>
-                        <span #emptyFav (click)="toggleFavorite(emptyFav)" class="card-wishlist material-icons">favorite_border</span
+                        <span #emptyFav (click)="toggleFav()" class="card-wishlist material-icons" *ngIf="!FavoriteToggle">favorite_border</span
+            >
+            <span
+              #emptyFav
+              (click)="toggleFav()"
+              class="card-wishlist material-icons"
+              *ngIf="FavoriteToggle"
+              >favorite</span
             >
             <mat-icon #filledFav (click)="toggleFavorite(filledFav)">
               favorite
@@ -24,41 +31,58 @@
               <p>{{ product.title }}</p>
             </div>
             <div class="card-body">
-              <button mat-strocked-button (click)="addToCart(product, element)">
-                <p #element>العربة</p>
+              <div *ngIf="CartBoolean">
+                <button
+                  mat-strocked-button
+                  (click)="addToCart(product, element); counterFunc()"
+                >
+                  <p #element>العربة</p>
 
-                <mat-icon>
-                  <span class="material-icons">shopping_basket</span>
+                  <mat-icon>
+                    <span class="material-icons">shopping_basket</span>
                         </mat-icon>
                         </button>
-                        <div class="spacer"></div>
-                        <p>IQD ${{ product.price }}</p>
                     </div>
+                    <!-- new -->
+                    <div *ngIf="!CartBoolean">
+                        <!-- <button mat-strocked-button (click)="addToCart(product, element)"> -->
+                        <button mat-strocked-button>
+                  <p #element>
+                    <mat-icon (click)="inc_Counter()">add_circle</mat-icon>
+                  </p>
+                  <span>{{ counter }}</span>
+                  <mat-icon (click)="dec_counter()">remove_circle</mat-icon>
+                </button>
+                    </div>
+                    <!-- new -->
+                    <div class="spacer"></div>
+                    <p>IQD ${{ product.price }}</p>
                 </div>
         </div>
-        </mat-card>
+</div>
+</mat-card>
 
-        <ng-template #content let-modal>
-            <div class="modal-header">
-                <button type="button" class="close" aria-label="Close" (click)="modal.dismiss('Cross click')">
+<ng-template #content let-modal>
+    <div class="modal-header">
+        <button type="button" class="close" aria-label="Close" (click)="modal.dismiss('Cross click')">
             <span aria-hidden="true">&times;</span>
           </button>
-            </div>
-            <div class="insidePop modal-body">
-                <img class="imgPopup" src="assets/images/{{ product.cover }}" alt="" height="200" width="100" />
-                <div class="spacer"></div>
-                <section class="secondgrid">
-                    <p class="titleClass">{{ product.title }}</p>
-                    <p class="popupPrice">IQD ${{ product.price }}</p>
-                </section>
-                <hr />
-            </div>
-            <div class="modal-footer">
-                <button type="button" class="btn btn-outline-dark" (click)="modal.close('Save click')">
+    </div>
+    <div class="insidePop modal-body">
+        <img class="imgPopup" src="assets/images/{{ product.cover }}" alt="" height="200" width="100" />
+        <div class="spacer"></div>
+        <section class="secondgrid">
+            <p class="titleClass">{{ product.title }}</p>
+            <p class="popupPrice">IQD ${{ product.price }}</p>
+        </section>
+        <hr />
+    </div>
+    <div class="modal-footer">
+        <button type="button" class="btn btn-outline-dark" (click)="modal.close('Save click')">
             Save
           </button>
-            </div>
-        </ng-template>
+    </div>
+</ng-template>
 </div>
 </main>
 </div>
