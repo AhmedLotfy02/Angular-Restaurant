@@ -18,13 +18,15 @@
                         <p>{{ product.title }}</p>
                     </div>
                     <div class="card-body">
-                        <button mat-strocked-button (click)="addToCart(product)">
-              <p>العربة</p>
+                        <button
+                          mat-strocked-button
+                          (click)="addToCart(product, element)">
+                          <p #element>العربة</p>
 
-              <mat-icon>
-                <span class="material-icons">shopping_basket</span>
-              </mat-icon>
-            </button>
+                          <mat-icon>
+                            <span class="material-icons">shopping_basket</span>
+                          </mat-icon>
+                        </button>
                         <div class="spacer"></div>
                         <p>IQD ${{ product.price }}</p>
                     </div>

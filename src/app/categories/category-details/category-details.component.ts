@@ -41,8 +41,17 @@ export class CategoryDetailsComponent implements OnInit {
 
   ngOnInit(): void {}
 
-  addToCart(product: Product) {
+  addToCart(product: Product, element: HTMLElement) {
     this.cartsService.addToCart(product);
+    const cartProdImg = document.createElement("img");
+    cartProdImg.src = "assets/images/"+product.cover;
+    cartProdImg.className = "cartProdImg";
+    cartProdImg.draggable = false;
+    cartProdImg.width = 50;
+    cartProdImg.style.animation = "mymove 5s infinite";
+    cartProdImg.style.animationTimingFunction = "ease-in-out";
+
+    element.appendChild(cartProdImg);
     console.log('This is added by user', this.cartsService.getProducts());
   }
 
@@ -51,7 +60,7 @@ export class CategoryDetailsComponent implements OnInit {
       icon.style.display = "none";
       console.log(icon)
     }else{
-      icon.color = "red";
+      icon.color = "red"; //here I want to know how to access the display or color property for a MatIcon not HTMLELment
       console.log(icon)
     }
 

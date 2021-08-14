@@ -86,6 +86,29 @@ p {
     font-size: 18px;
 }
 
+.cartProdImg {
+  z-index: 11111;
+  width:40px;
+  position: relative;
+  top:200px;
+  left:0px;
+  opacity: 0;
+  transition: left 1s ease 0s,
+              top 1s ease 0s,
+              width 1s ease 0s,
+              opacity 1s cubic-bezier(1,1,1,1) 0s;
+  border-radius: 80%;
+  overflow: hidden;
+  box-shadow: rgba(0,0,0,0.1) 0px 20px 36px;
+  animation: mymove 5s infinite;
+  animation-timing-function: ease-in-out;
+}
+
+@keyframes mymove {
+  from {left: 0px;}
+  to {left: 300px;}
+}
+
 .mat-card {
     height: auto;
     width: 70%;
