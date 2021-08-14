@@ -1,10 +1,10 @@
-@import url("https://fonts.googleapis.com/css2?family=Lalezar&family=Staatliches&display=swap");
+@import url("https://fonts.googleapis.com/css2?family=Lalezar&family=Russo+One&family=Staatliches&display=swap");
 .rightSide {
     position: absolute;
     right: 0;
     width: 250px;
     display: flex;
-    flex-direction: column-reverse;
+    flex-direction: column;
     margin-top: -1.5em;
 }
 
@@ -12,8 +12,34 @@ button {
     color: black;
     font-family: "Staatliches", cursive;
     font-size: 20px;
+    margin-top: 1em;
 }
 
 button:hover {
     color: #f5790c;
+}
+
+.ahref {
+    text-decoration: none;
+    color: black;
+    font-family: "Russo One", sans-serif;
+    font-weight: bold;
+    font-size: 23px;
+    margin-top: 1em;
+    text-align: right;
+    height: auto;
+    padding: 0.4em;
+}
+
+.ahref:hover {
+    color: #f5790c;
+}
+
+.class1 {
+    background-color: #f5790c;
+    color: white;
+}
+
+.class1:hover {
+    color: white;
 }
