@@ -3,6 +3,7 @@ import { PRODUCTS } from 'src/app/products/mock-product';
 import { Product } from 'src/app/products/product';
 import { CartsService } from 'src/app/shopping-cart/carts.service';
 import { NgbModal, ModalDismissReasons } from '@ng-bootstrap/ng-bootstrap';
+import { MatIcon } from '@angular/material/icon';
 
 @Component({
   selector: 'category-details',
@@ -44,4 +45,17 @@ export class CategoryDetailsComponent implements OnInit {
     this.cartsService.addToCart(product);
     console.log('This is added by user', this.cartsService.getProducts());
   }
+
+  toggleFavorite(icon:any){
+    if( (icon instanceof HTMLElement) ){
+      icon.style.display = "none";
+      console.log(icon)
+    }else{
+      icon.color = "red";
+      console.log(icon)
+    }
+
+  }
+
+
 }

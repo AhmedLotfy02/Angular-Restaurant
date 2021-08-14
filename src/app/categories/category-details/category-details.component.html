@@ -10,7 +10,8 @@
                     <a>
                         <img class="card-img" src="assets/images/{{ product.cover }}" alt="" (click)="open(content)" />
                     </a>
-                    <span class="card-wishlist material-icons">favorite_border</span>
+                    <span #emptyFav (click)="toggleFavorite(emptyFav)" class="card-wishlist material-icons">favorite_border</span>
+                    <mat-icon #filledFav (click)="toggleFavorite(filledFav)"> favorite </mat-icon>
                 </div>
                 <div class="c">
                     <div class="card-title">
