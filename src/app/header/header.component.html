@@ -1,35 +1,46 @@
 <section #search class="search-section">
     <div class="search-content">
         <form>
-            <button mat-raised-button (click)="toggleSearchBar()">
-        <mat-icon> search </mat-icon>
-      </button>
-            <input type="text" />
+          <button mat-raised-button (click)="toggleSearchBar()">
+            <mat-icon> search </mat-icon>
+          </button>
+          <input type="text" />
         </form>
     </div>
     <div class="search-back">
         <button mat-button>
-      <mat-icon> arrow_forward </mat-icon>
-    </button>
+          <mat-icon> arrow_forward </mat-icon>
+        </button>
     </div>
 </section>
-<section>
+
+<section class="header-section">
     <div class="header-links">
         <div class="whats-link">
-            <a href="https://web.whatsapp.com/">
+            <a href="https://web.whatsapp.com/" target="_blank">
                 <mat-icon> whatsapp </mat-icon>
             </a>
         </div>
         <div class="wishlist-link">
             <button mat-stroked-button>
-        <mat-icon (click)="drawer.toggle()"> favorite </mat-icon>
-      </button>
+              <mat-icon (click)="drawer.toggle()"> favorite </mat-icon>
+            </button>
         </div>
         <div class="search">
             <button (click)="onSearch(search)" mat-stroked-button>
-        <mat-icon> search </mat-icon>
-      </button>
+              <mat-icon> search </mat-icon>
+            </button>
         </div>
+    </div>
+    <div class="search-form">
+      <form>
+          <mat-form-field appearance="fill">
+            <input matInput placeholder="ابحث عن منتجاتك من هنا">
+            <button mat-flat-button>
+            <mat-icon> search </mat-icon>
+          </button>
+          </mat-form-field>
+      </form>
     </div>
     <div class="logo-img">
         <img src="../../assets/images/logo-6511d01347fe5c0c0c9f138587bdff10.png" />
