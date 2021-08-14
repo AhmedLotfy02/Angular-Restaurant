@@ -1,44 +1,48 @@
 <header></header>
 
 <cart></cart>
+<div class="spacer3"></div>
+<app-right-side></app-right-side>
 
-<main>
-    <div class="content" *ngFor="let product of products">
-        <mat-card>
-            <div class="card">
-                <div class="card-cnt">
-                    <a>
-                        <img class="card-img" src="assets/images/{{ product.cover }}" alt="" (click)="open(content)" />
-                    </a>
-                    <span #emptyFav (click)="toggleFavorite(emptyFav)" class="card-wishlist material-icons">favorite_border</span>
-                    <mat-icon #filledFav (click)="toggleFavorite(filledFav)"> favorite </mat-icon>
-                </div>
-                <div class="c">
-                    <div class="card-title">
-                        <p>{{ product.title }}</p>
-                    </div>
-                    <div class="card-body">
-                        <button
-                          mat-strocked-button
-                          (click)="addToCart(product, element)">
-                          <p #element>العربة</p>
+<div class="outtergrid">
+    <main>
+        <div class="content" *ngFor="let product of products">
+            <mat-card>
+                <div class="card">
+                    <div class="card-cnt">
+                        <a>
+                            <img class="card-img" src="assets/images/{{ product.cover }}" alt="" (click)="open(content)" />
+                        </a>
+                        <span #emptyFav (click)="toggleFavorite(emptyFav)" class="card-wishlist material-icons">favorite_border</span
+            >
+            <mat-icon #filledFav (click)="toggleFavorite(filledFav)">
+              favorite
+            </mat-icon>
+          </div>
+          <div class="c">
+            <div class="card-title">
+              <p>{{ product.title }}</p>
+            </div>
+            <div class="card-body">
+              <button mat-strocked-button (click)="addToCart(product, element)">
+                <p #element>العربة</p>
 
-                          <mat-icon>
-                            <span class="material-icons">shopping_basket</span>
-                          </mat-icon>
+                <mat-icon>
+                  <span class="material-icons">shopping_basket</span>
+                        </mat-icon>
                         </button>
                         <div class="spacer"></div>
                         <p>IQD ${{ product.price }}</p>
                     </div>
                 </div>
-            </div>
+        </div>
         </mat-card>
 
         <ng-template #content let-modal>
             <div class="modal-header">
                 <button type="button" class="close" aria-label="Close" (click)="modal.dismiss('Cross click')">
-          <span aria-hidden="true">&times;</span>
-        </button>
+            <span aria-hidden="true">&times;</span>
+          </button>
             </div>
             <div class="insidePop modal-body">
                 <img class="imgPopup" src="assets/images/{{ product.cover }}" alt="" height="200" width="100" />
@@ -51,11 +55,11 @@
             </div>
             <div class="modal-footer">
                 <button type="button" class="btn btn-outline-dark" (click)="modal.close('Save click')">
-          Save
-        </button>
+            Save
+          </button>
             </div>
         </ng-template>
-    </div>
+</div>
 </main>
-
+</div>
 <footer></footer>

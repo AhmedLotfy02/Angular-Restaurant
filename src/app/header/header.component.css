@@ -132,19 +132,3 @@
 .inputSearch {
     margin-left: 9em;
 }
-
-.newInput {
-    width: 100%;
-    opacity: 1;
-    transition: width 500ms ease-in-out 0s, opacity 500ms ease-in-out 0s;
-    height: 100%;
-    -webkit-box-flex: 1;
-    flex-grow: 1;
-    font-size: 15px;
-    color: rgb(119, 121, 140);
-    border: none;
-    border-radius: 0px 6px 6px 0px;
-    display: flex;
-    -webkit-box-align: center;
-    align-items: center;
-}

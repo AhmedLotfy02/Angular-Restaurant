@@ -25,6 +25,7 @@ import { ProductDetailsComponent } from './products/product-details/product-deta
 import { HttpClientModule } from '@angular/common/http';
 import { NgbModule } from '@ng-bootstrap/ng-bootstrap';
 import { FormsModule, ReactiveFormsModule } from '@angular/forms';
+import { RightSideComponent } from './right-side/right-side.component';
 @NgModule({
   declarations: [
     AppComponent,
@@ -37,6 +38,7 @@ import { FormsModule, ReactiveFormsModule } from '@angular/forms';
     OrderComponent,
     CartDetailsComponent,
     ProductDetailsComponent,
+    RightSideComponent,
   ],
   imports: [
     BrowserModule,

@@ -61,7 +61,7 @@
             </ng-template>
         </mat-stepper> -->
         <mat-stepper [linear]="isLinear" #stepper>
-            <mat-step [stepControl]="firstFormGroup" state="account">
+            <mat-step [stepControl]="firstFormGroup" state="account" class="test">
                 <form [formGroup]="firstFormGroup">
                     <ng-template matStepLabel>بياناتك</ng-template>
                     <mat-form-field appearance="fill">
@@ -130,7 +130,7 @@
                 <mat-icon class="iconStepper">home</mat-icon>
             </ng-template>
             <ng-template matStepperIcon="payment">
-                <mat-icon class="iconStepper">payment</mat-icon>
+                <mat-icon [inline]="true" class="iconStepper">payment</mat-icon>
             </ng-template>
         </mat-stepper>
     </div>
