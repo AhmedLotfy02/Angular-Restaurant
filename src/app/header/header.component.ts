@@ -56,7 +56,22 @@ export class HeaderComponent implements OnInit {
         prodImg:product.cover,
         prodPrice:product.price
       });
+
+    }else{
+        this.favorites.filter(function(v,ind,arr){
+          if(v.prodTitle === product.title){
+            console.log(v);
+            return;
+          }else{
+            return v.prodTitle !== product.title;
+          };
+        });
+        console.log(this.favorites);
+
     }
+  }
+
+  deleteFromFav(product: Product){
 
   }
 
