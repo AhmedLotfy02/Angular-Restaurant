@@ -16,8 +16,14 @@ export class CategoryDetailsComponent implements OnInit {
   counter = 0;
   CartBoolean = true;
   FavoriteToggle = false;
-  toggleFav() {
-    this.FavoriteToggle = !this.FavoriteToggle;
+  toggleFav(icon:HTMLElement) {
+    //this.FavoriteToggle = !this.FavoriteToggle;
+
+    if(icon.innerHTML == "favorite_border"){
+      icon.innerHTML = "favorite"
+    }else{
+      icon.innerHTML = "favorite_border"
+    }
   }
   inc_Counter() {
     this.counter++;
@@ -77,13 +83,9 @@ export class CategoryDetailsComponent implements OnInit {
     console.log('This is added by user', this.cartsService.getProducts());
   }
 
-  toggleFavorite(icon: any) {
-    if (icon instanceof HTMLElement) {
-      icon.style.display = 'none';
-      console.log(icon);
-    } else {
-      icon.color = 'red'; //here I want to know how to access the display or color property for a MatIcon not HTMLELment
-      console.log(icon);
-    }
+  handleAddToCart(product: Product){
+    this.cartsService.receiveProd(product)
   }
+
+
 }

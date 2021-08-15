@@ -52,6 +52,11 @@ button {
     margin: 0px;
 }
 
+.example-sidenav{
+  width:400px;
+
+}
+
 .example-container {
     width: 10px;
     margin-left: 50%;
@@ -68,6 +73,23 @@ button {
 .example-sidenav {
     height: 100%;
     padding: 20px;
+}
+
+.cart-prod{
+  display:flex;
+  flex-direction: column;
+  justify-content: right;
+  text-align: right;
+}
+.cart-prod-content{
+  display: flex;
+}
+.cart-prod img{
+  width:100px;
+}
+.cart-prod .cart-prod-details{
+  width:100%;
+  padding:10px;
 }
 
 .mat-stepper-horizontal {

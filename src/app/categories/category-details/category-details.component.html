@@ -13,18 +13,15 @@
                         <a>
                             <img class="card-img" src="assets/images/{{ product.cover }}" alt="" (click)="open(content)" />
                         </a>
-                        <span #emptyFav (click)="toggleFav()" class="card-wishlist material-icons" *ngIf="!FavoriteToggle">favorite_border</span
+                        <span #emptyFav (click)="toggleFav(emptyFav)" class="card-wishlist material-icons" *ngIf="!FavoriteToggle">favorite_border</span
             >
             <span
-              #emptyFav
-              (click)="toggleFav()"
+              #filledFav
+              (click)="toggleFav(filledFav)"
               class="card-wishlist material-icons"
               *ngIf="FavoriteToggle"
               >favorite</span
             >
-            <mat-icon #filledFav (click)="toggleFavorite(filledFav)">
-              favorite
-            </mat-icon>
           </div>
           <div class="c">
             <div class="card-title">
@@ -34,6 +31,7 @@
               <div *ngIf="CartBoolean">
                 <button
                   mat-strocked-button
+                  (click)= "handleAddToCart(product)"
                   (click)="addToCart(product, element); counterFunc()"
                 >
                   <p #element>العربة</p>

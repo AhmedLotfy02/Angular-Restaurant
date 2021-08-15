@@ -15,4 +15,11 @@ export class ProductsService {
     return [...this.products];
   }
 
+  getSingleProduct(id:string){
+    const ind = this.products.findIndex(function(p){
+      return(p.id == id)
+    })
+    return this.products[ind];
+  }
+
 }

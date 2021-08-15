@@ -4,6 +4,8 @@ import { CartsService } from '../carts.service';
 import { FormBuilder, FormGroup, Validators } from '@angular/forms';
 import { NgbModal, ModalDismissReasons } from '@ng-bootstrap/ng-bootstrap';
 import { STEPPER_GLOBAL_OPTIONS } from '@angular/cdk/stepper';
+import { CARTS } from '../mock-cart';
+import { Product } from 'src/app/products/product';
 
 @Component({
   selector: 'cart',
@@ -17,7 +19,8 @@ import { STEPPER_GLOBAL_OPTIONS } from '@angular/cdk/stepper';
   ],
 })
 export class CartComponent implements OnInit {
-  //carts: Cart[] = [];
+  carts: Cart[] = [];
+  cartTotal = 0;
 
   constructor(
     private cartsService: CartsService,
@@ -25,7 +28,6 @@ export class CartComponent implements OnInit {
     private modalService: NgbModal
   ) {}
   closeResult = '';
-  carts = this.cartsService.getProducts();
   totalPrice = this.cartsService.getTotalPrice();
 
   sideState = false;
@@ -69,5 +71,24 @@ export class CartComponent implements OnInit {
     this.thirdFormGroup = this._formBuilder.group({
       thirdCtrl: ['', Validators.required],
     });
+
+
+    this.cartsService.viewProd().subscribe((product: any)=>{
+      this.carts.push({
+        id:"",
+        prodId:product.id,
+        prodTitle:product.prodTitle,
+        prodQuantity:1,
+        prodPrice:product.price
+      });
+
+      this.cartTotal = 0;
+      this.carts.forEach(p=>{
+        this.cartTotal += p.prodQuantity * p.prodPrice;
+      });
+
+    });
+
   }
+
 }

@@ -1,3 +1,4 @@
+
 <div class="cartBtn">
     <button mat-button (click)="drawer.toggle(); toggleSide()" *ngIf="!sideState">
     <div class="cart-count">
@@ -7,7 +8,7 @@
       </mat-icon>
     </div>
     <div class="cart-price">
-      <p>IQD {{ totalPrice }}</p>
+      <p>IQD {{ cartTotal }}</p>
     </div>
   </button>
 </div>
@@ -20,10 +21,21 @@
         <div class="sider">
             <a mat-button (click)="drawer.toggle(); toggleSide()">X</a>
             <br />
+            <div *ngIf="carts.length === 0">
+              <p>No items yet</p>
+            </div>
             <a mat-button routerLink="/" routerLinkActive="mat-accent">DashBoard</a>
             <br />
             <a mat-button routerLink="/" routerLinkActive="mat-accent">My Cart</a>
-
+            <div class="cart-prod" >
+              <div class="cart-prod-content" *ngFor="let cartProd of carts"\>
+                  <div class="cart-prod-details">
+                    <p>{{ cartProd }}</p>
+                    <p>IQD {{ cartProd }}</p>
+                  </div>
+                  <img src="assets/images/{{ cartProd }}">
+              </div>
+            </div>
             <button mat-raised-button (click)="open(content)">الطلب</button>
         </div>
     </mat-drawer>
@@ -49,7 +61,7 @@
                 <p>You're welcome.</p>
             </mat-step>
 
-            
+
             <ng-template matStepperIcon="account">
                 <mat-icon>account_box</mat-icon>
             </ng-template>
