@@ -1,4 +1,4 @@
-import { Component, OnInit } from '@angular/core';
+import { Component, OnInit, Output } from '@angular/core';
 import { Cart } from '../cart';
 import { CartsService } from '../carts.service';
 import { FormBuilder, FormGroup, Validators } from '@angular/forms';
@@ -28,7 +28,6 @@ export class CartComponent implements OnInit {
     private modalService: NgbModal
   ) {}
   closeResult = '';
-  totalPrice = this.cartsService.getTotalPrice();
 
   sideState = false;
   toggleSide() {
@@ -74,21 +73,37 @@ export class CartComponent implements OnInit {
 
 
     this.cartsService.viewProd().subscribe((product: any)=>{
+      this.addToCart(product);
+    });
+
+  }
+
+  addToCart(product:Product){
+    let prodExists = false;
+
+    for(let index in this.carts){
+      if( this.carts[index].prodId === product.id ){
+        this.carts[index].prodQuantity++;
+        prodExists = true;
+        break;
+      }
+    }
+
+    if(!prodExists){
       this.carts.push({
         id:"",
         prodId:product.id,
-        prodTitle:product.prodTitle,
+        prodTitle:product.title,
+        prodImg:product.cover,
+        prodPrice:product.price,
         prodQuantity:1,
-        prodPrice:product.price
       });
+    }
 
-      this.cartTotal = 0;
-      this.carts.forEach(p=>{
-        this.cartTotal += p.prodQuantity * p.prodPrice;
-      });
-
+    this.cartTotal = 0;
+    this.carts.forEach(p=>{
+      this.cartTotal += p.prodQuantity * p.prodPrice;
     });
-
   }
 
 }

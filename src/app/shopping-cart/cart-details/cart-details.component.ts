@@ -1,4 +1,6 @@
-import { Component, OnInit } from '@angular/core';
+import { Component, Input, OnInit } from '@angular/core';
+import { Product } from 'src/app/products/product';
+import { Cart } from '../cart';
 
 
 @Component({
@@ -8,9 +10,13 @@ import { Component, OnInit } from '@angular/core';
 })
 export class CartDetailsComponent implements OnInit {
 
+  carts: Cart[] = [];
+  @Input() prodItem:any;
+
   constructor() { }
 
   ngOnInit(): void {
+
   }
 
 }

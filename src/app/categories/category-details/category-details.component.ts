@@ -70,7 +70,7 @@ export class CategoryDetailsComponent implements OnInit {
   ngOnInit(): void {}
 
   addToCart(product: Product, element: HTMLElement) {
-    this.cartsService.addToCart(product);
+
     const cartProdImg = document.createElement('img');
     cartProdImg.src = 'assets/images/' + product.cover;
     cartProdImg.className = 'cartProdImg';
