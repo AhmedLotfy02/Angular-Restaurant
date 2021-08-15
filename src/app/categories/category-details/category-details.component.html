@@ -13,15 +13,20 @@
                         <a>
                             <img class="card-img" src="assets/images/{{ product.cover }}" alt="" (click)="open(content)" />
                         </a>
-                        <span #emptyFav (click)="toggleFav(emptyFav)" class="card-wishlist material-icons" *ngIf="!FavoriteToggle">favorite_border</span
-            >
-            <span
-              #filledFav
-              (click)="toggleFav(filledFav)"
-              class="card-wishlist material-icons"
-              *ngIf="FavoriteToggle"
-              >favorite</span
-            >
+                        <div (click)="addToFav(product)">
+                          <span
+                              #emptyFav
+                              (click)="toggleFav(emptyFav)"
+                              class="card-wishlist material-icons"
+                              *ngIf="!FavoriteToggle">favorite_border</span>
+                          <span
+                            #filledFav
+
+                            (click)="toggleFav(filledFav)"
+                            class="card-wishlist material-icons"
+                            *ngIf="FavoriteToggle"
+                            >favorite</span>
+                        </div>
           </div>
           <div class="c">
             <div class="card-title">

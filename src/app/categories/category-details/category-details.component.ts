@@ -4,6 +4,7 @@ import { Product } from 'src/app/products/product';
 import { CartsService } from 'src/app/shopping-cart/carts.service';
 import { NgbModal, ModalDismissReasons } from '@ng-bootstrap/ng-bootstrap';
 import { MatIcon } from '@angular/material/icon';
+import { FavoritesService } from 'src/app/favorite/favorites.service';
 
 @Component({
   selector: 'category-details',
@@ -64,6 +65,7 @@ export class CategoryDetailsComponent implements OnInit {
   }
   constructor(
     private cartsService: CartsService,
+    private favoritesService: FavoritesService,
     private modalService: NgbModal
   ) {}
 
@@ -84,8 +86,11 @@ export class CategoryDetailsComponent implements OnInit {
   }
 
   handleAddToCart(product: Product){
-    this.cartsService.receiveProd(product)
+    this.cartsService.receiveProd(product);
   }
 
+  addToFav(product: Product){
+    this.favoritesService.receiveProd(product);
+  }
 
 }

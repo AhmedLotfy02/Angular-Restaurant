@@ -56,10 +56,44 @@
         <div class="sider">
             <a mat-button (click)="drawer.toggle(); toggleSide()">X</a>
             <br />
+            <div *ngIf="favorites.length === 0">
+              No items yet
+            </div>
             <a mat-button routerLink="/" routerLinkActive="mat-accent">New</a>
             <br />
-            <a mat-button routerLink="/" routerLinkActive="mat-accent">لسه هيتعدل فيه</a
-      >
-    </div>
-  </mat-drawer>
+            <a mat-button routerLink="/" routerLinkActive="mat-accent">لسه هيتعدل فيه</a>
+            <div class="fav-content">
+              <div class="favProd" *ngFor="let favProd of favorites">
+                <mat-card>
+                  <div class="card">
+                      <div class="card-cnt">
+                          <a>
+                              <img class="card-img" src="assets/images/{{ favProd.prodImg }}" alt=""/>
+                          </a>
+                            <span
+                              #filledFav
+                              class="card-wishlist material-icons"
+                              >favorite</span>
+                      </div>
+                      <div class="c">
+                        <div class="card-title">
+                          <p>{{ favProd.prodTitle }}</p>
+                        </div>
+                        <div class="card-body">
+                          <div>
+                            <button mat-strocked-button >
+                              <p #element>العربة</p>
+                              <mat-icon>
+                                  <span class="material-icons">shopping_basket</span>
+                              </mat-icon>
+                            </button>
+                          </div>
+                       </div>
+                      </div>
+                    </div>
+                </mat-card>
+              </div>
+            </div>
+          </div>
+    </mat-drawer>
 </div>

@@ -8,13 +8,13 @@ import { Subject } from 'rxjs';
 })
 export class CartsService {
   private products: Product[] = [];
+
   constructor(private productsService: ProductsService) {}
 
-
- subject = new Subject;
+  subject = new Subject;
 
   receiveProd(product:Product){
-    this.subject.next(product) //triggering an event
+    this.subject.next(product); //triggering an event
   }
 
   viewProd(){
