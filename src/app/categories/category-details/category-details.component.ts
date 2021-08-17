@@ -26,21 +26,21 @@ export class CategoryDetailsComponent implements OnInit {
       icon.innerHTML = "favorite_border"
     }
   }
-  inc_Counter() {
+  /* inc_Counter() {
     this.counter++;
-  }
-  dec_counter() {
+  } */
+  /* dec_counter() {
     if (this.counter === 1) {
       this.counter--;
       this.CartBoolean = true;
     } else {
       this.counter--;
     }
-  }
+  } */
   counterFunc() {
     if (!this.counter) {
       this.CartBoolean = false;
-      this.counter = 1;
+      /* this.counter = 1; */
     }
   }
   open(content: any) {
@@ -71,8 +71,7 @@ export class CategoryDetailsComponent implements OnInit {
 
   ngOnInit(): void {}
 
-  addToCart(product: Product, element: HTMLElement) {
-
+  /* addToCart(product: Product, element: HTMLElement) {
     const cartProdImg = document.createElement('img');
     cartProdImg.src = 'assets/images/' + product.cover;
     cartProdImg.className = 'cartProdImg';
@@ -83,10 +82,18 @@ export class CategoryDetailsComponent implements OnInit {
 
     element.appendChild(cartProdImg);
     console.log('This is added by user', this.cartsService.getProducts());
-  }
+  } */
 
-  handleAddToCart(product: Product){
-    this.cartsService.receiveProd(product);
+  handleAddToCart(product: Product, count:string){
+    if(count=='' || count=='+'){
+      this.counter++;
+    }else{
+      if(this.counter != 0){
+        this.counter--;
+      }
+
+    }
+    this.cartsService.receiveProd(product, count);
   }
 
   addToFav(product: Product){

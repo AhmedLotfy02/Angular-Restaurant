@@ -1,7 +1,7 @@
 import { Injectable } from '@angular/core';
 import { Product } from '../products/product';
 import { ProductsService } from '../products/products.service';
-import { Subject } from 'rxjs';
+import { Subject, Subscription } from 'rxjs';
 
 @Injectable({
   providedIn: 'root',
@@ -12,9 +12,11 @@ export class CartsService {
   constructor(private productsService: ProductsService) {}
 
   subject = new Subject;
+  subscriptions: Subscription[] = [];
 
-  receiveProd(product:Product){
-    this.subject.next(product); //triggering an event
+  receiveProd(product:Product, count:string){
+    this.subject.next(count);
+    this.subject.next(product);
   }
 
   viewProd(){

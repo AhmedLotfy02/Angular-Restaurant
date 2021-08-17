@@ -29,7 +29,7 @@
             <a mat-button routerLink="/" routerLinkActive="mat-accent">My Cart</a>
             <div class="cart-prod" >
               <div class="cart-prod-content" *ngFor="let cartProd of carts">
-                  <cart-details [prodItem]="cartProd"></cart-details>
+                  <cart-details [prodItem]="carts"></cart-details>
                   <div class="cart-prod-details">
                     <p>{{ cartProd.prodTitle }}</p>
                     <p>IQD {{ cartProd.prodPrice }}</p>

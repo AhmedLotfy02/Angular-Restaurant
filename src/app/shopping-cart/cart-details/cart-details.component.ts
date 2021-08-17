@@ -16,7 +16,7 @@ export class CartDetailsComponent implements OnInit {
   constructor() { }
 
   ngOnInit(): void {
-
+    this.carts = this.prodItem;
   }
 
 }

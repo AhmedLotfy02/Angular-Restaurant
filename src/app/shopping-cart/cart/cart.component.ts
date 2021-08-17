@@ -1,4 +1,4 @@
-import { Component, OnInit, Output } from '@angular/core';
+import { Component, Input, OnInit, Output } from '@angular/core';
 import { Cart } from '../cart';
 import { CartsService } from '../carts.service';
 import { FormBuilder, FormGroup, Validators } from '@angular/forms';
@@ -21,6 +21,9 @@ import { Product } from 'src/app/products/product';
 export class CartComponent implements OnInit {
   carts: Cart[] = [];
   cartTotal = 0;
+product!: Product;
+sign = '';
+  @Input() prodItems!:any;
 
   constructor(
     private cartsService: CartsService,
@@ -72,38 +75,63 @@ export class CartComponent implements OnInit {
     });
 
 
-    this.cartsService.viewProd().subscribe((product: any)=>{
-      this.addToCart(product);
-    });
-
-  }
-
-  addToCart(product:Product){
-    let prodExists = false;
-
-    for(let index in this.carts){
-      if( this.carts[index].prodId === product.id ){
-        this.carts[index].prodQuantity++;
-        prodExists = true;
-        break;
+    this.cartsService.viewProd().subscribe((result:any)=>{
+      if(typeof(result)=="string"){
+      this.sign = result;
+      console.log(this.sign)
       }
-    }
+      if(typeof(result)=="object"){
+        this.product = result;
+        console.log(this.product)
+        this.addToCart(this.product, this.sign)
+      }
 
-    if(!prodExists){
-      this.carts.push({
-        id:"",
-        prodId:product.id,
-        prodTitle:product.title,
-        prodImg:product.cover,
-        prodPrice:product.price,
-        prodQuantity:1,
-      });
-    }
 
-    this.cartTotal = 0;
-    this.carts.forEach(p=>{
-      this.cartTotal += p.prodQuantity * p.prodPrice;
     });
   }
 
+  addToCart(product:Product, sign:string){
+    let prodExists = false;
+    if(sign == '' || sign=='+'){
+      for(let index in this.carts){
+        if( this.carts[index].prodId === product.id ){
+          this.carts[index].prodQuantity++;
+          prodExists = true;
+          break;
+        }
+      }
+
+      if(!prodExists){
+        this.carts.push({
+          id:"",
+          prodId:product.id,
+          prodTitle:product.title,
+          prodImg:product.cover,
+          prodPrice:product.price,
+          prodQuantity:1,
+        });
+      }
+      this.cartTotal = 0;
+      this.carts.forEach(p=>{
+        this.cartTotal += p.prodQuantity * p.prodPrice;
+      });
+    }if(sign=='-'){
+      for(let index in this.carts){
+        if( this.carts[index].prodId === product.id ){
+          if(this.carts[index].prodQuantity <= 0){
+            console.log("delete");
+          }else{
+            this.carts[index].prodQuantity--;
+          }
+          prodExists = true;
+
+          this.cartTotal = 0;
+          this.carts.forEach(p=>{
+            this.cartTotal += p.prodQuantity * p.prodPrice;
+          });
+          break;
+        }
+    }
+  }
+  }
 }
