@@ -81,7 +81,7 @@
     background-color: transparent;
 }
 
-@media screen and (min-width: 500px) {
+@media screen and (min-width: 700px) {
     .search-form form mat-form-field {
         display: flex;
     }

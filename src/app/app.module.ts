@@ -9,6 +9,8 @@ import { MatSidenavModule } from '@angular/material/sidenav';
 import { MatIconModule } from '@angular/material/icon';
 import { MatGridListModule } from '@angular/material/grid-list';
 import { MatStepperModule } from '@angular/material/stepper';
+import {MatDialogModule} from '@angular/material/dialog';
+import {MatSliderModule} from '@angular/material/slider';
 
 import { AppRoutingModule } from './app-routing.module';
 import { AppComponent } from './app.component';
@@ -26,6 +28,7 @@ import { HttpClientModule } from '@angular/common/http';
 import { NgbModule } from '@ng-bootstrap/ng-bootstrap';
 import { FormsModule, ReactiveFormsModule } from '@angular/forms';
 import { RightSideComponent } from './right-side/right-side.component';
+import { FilterDialogComponent } from './filter-dialog/filter-dialog.component';
 @NgModule({
   declarations: [
     AppComponent,
@@ -39,6 +42,7 @@ import { RightSideComponent } from './right-side/right-side.component';
     CartDetailsComponent,
     ProductDetailsComponent,
     RightSideComponent,
+    FilterDialogComponent,
   ],
   imports: [
     BrowserModule,
@@ -57,6 +61,8 @@ import { RightSideComponent } from './right-side/right-side.component';
     MatStepperModule,
     ReactiveFormsModule,
     NgbModule,
+    MatDialogModule,
+    MatSliderModule
   ],
   providers: [],
   bootstrap: [AppComponent],

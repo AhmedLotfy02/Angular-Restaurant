@@ -1,0 +1,31 @@
+<div mat-dialog-content>
+      <mat-label>Category Name</mat-label>
+        <input matInput [(ngModel)]="data.category"><br/>
+
+      <label>Min Price {{value}}</label><br/>
+      <input type="range" min="0" max="5" step="0.5" value="0" [(ngModel)]="value" [(ngModel)]="data.minPrice"/>
+
+</div>
+
+<div mat-dialog-actions>
+  <button mat-button (click)="onNoClick()">
+    Cancel
+  </button>
+  <button mat-button [mat-dialog-close]="data">
+    Ok
+  </button>
+</div>
+
+
+<!-- <div>
+  <mat-slider class="example-margin"
+        thumbLabel
+        min="0"
+        max="100"
+        step="1"
+        value="2"
+
+        aria-labelledby="example-name-label"
+        aria-label="unit(s)">
+    </mat-slider>
+</div> -->

@@ -1,9 +1,18 @@
 import { Component, OnInit } from '@angular/core';
+import { MatDialog } from '@angular/material/dialog';
 import { Observable, OperatorFunction } from 'rxjs';
 import { debounceTime, distinctUntilChanged, map } from 'rxjs/operators';
 import { Favorite } from '../favorite/favorite';
 import { FavoritesService } from '../favorite/favorites.service';
+import { FilterDialogComponent } from '../filter-dialog/filter-dialog.component';
 import { Product } from '../products/product';
+
+export interface DialogData{
+  category: string;
+  minPrice:number;
+  maxPrice:number;
+}
+
 @Component({
   selector: 'header',
   templateUrl: './header.component.html',
@@ -13,7 +22,7 @@ export class HeaderComponent implements OnInit {
 
   favorites: Favorite[] = [];
 
-  constructor(private favoritesService: FavoritesService) {}
+  constructor(private favoritesService: FavoritesService, public dialog:MatDialog) {}
 
   ngOnInit(): void {
     this.favoritesService.viewProd().subscribe((product:any)=>{
@@ -36,6 +45,23 @@ export class HeaderComponent implements OnInit {
   searchBar = false;
   toggleSearchBar() {
     this.searchBar = !this.searchBar;
+  }
+
+
+  category!: string;
+  minPrice!:number;
+  maxPrice!:number;
+  openDialog(){
+    const dialogRef = this.dialog.open(FilterDialogComponent,{
+      width:"240px",
+      data:{ category: this.category, minPrice: this.minPrice, maxPrice: this.maxPrice}
+    });
+
+    dialogRef.afterClosed().subscribe(result=>{
+      this.category = result.category;
+      this.minPrice = result.minPrice;
+      this.maxPrice = result.maxPrice;
+    })
   }
 
 

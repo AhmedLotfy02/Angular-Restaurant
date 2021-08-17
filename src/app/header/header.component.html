@@ -39,6 +39,9 @@
                 <button class="SearchButton" mat-flat-button>
                   <mat-icon> search </mat-icon>
                 </button>
+                <button mat-raised-button (click)="openDialog()" class="filter-btn">
+                  Filter
+                </button>
             </mat-form-field>
         </form>
     </div>
@@ -46,6 +49,11 @@
         <img src="../../assets/images/logo-6511d01347fe5c0c0c9f138587bdff10.png" />
     </div>
 </section>
+<div *ngIf="category">
+  Cat : {{category}}
+  min : {{minPrice}}
+  max : {{maxPrice}}
+</div>
 
 <div>
     <mat-drawer-container class="example-container" autosize>
