@@ -85,14 +85,28 @@ export class CategoryDetailsComponent implements OnInit {
   } */
 
   handleAddToCart(product: Product, count:string){
-    if(count=='' || count=='+'){
-      this.counter++;
-    }else{
-      if(this.counter != 0){
-        this.counter--;
-      }
 
+    if(count=='' || count=='+'){
+      product.counterCart++;
     }
+    if(count==='-'){
+      if(product.counterCart===1){
+        product.counterCart=0;
+          this.CartBoolean=true;
+      }
+      else{
+        product.counterCart--;
+      }
+    }
+    // if(this.counter === 0 ){
+    //   this.CartBoolean = false;
+    // }
+    // if(this.counter != 0){
+    //     this.counter--;
+    //   }
+
+
+
     this.cartsService.receiveProd(product, count);
   }
 

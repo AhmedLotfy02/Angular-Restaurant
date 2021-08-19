@@ -116,22 +116,42 @@ sign = '';
         this.cartTotal += p.prodQuantity * p.prodPrice;
       });
     }if(sign=='-'){
-      for(let index in this.carts){
-        if( this.carts[index].prodId === product.id ){
-          if(this.carts[index].prodQuantity <= 0){
-            console.log("delete");
-          }else{
-            this.carts[index].prodQuantity--;
+      for(var i=0;i<this.carts.length;i++){
+        if(product.title===this.carts[i].prodTitle){
+          if(this.carts[i].prodQuantity===1){
+            this.carts[i].prodQuantity=0;
+            this.carts.splice(i,1);
           }
-          prodExists = true;
-
-          this.cartTotal = 0;
-          this.carts.forEach(p=>{
-            this.cartTotal += p.prodQuantity * p.prodPrice;
-          });
-          break;
+          else{
+            this.carts[i].prodQuantity--;
+          }
         }
-    }
+      }
+      this.cartTotal=0;
+      for(var j=0;j<this.carts.length;j++){
+        this.cartTotal+=this.carts[j].prodQuantity*this.carts[j].prodPrice;
+      }
+
+    //   for(let index in this.carts){
+    //     if( this.carts[index].prodId === product.id ){
+    //       if(this.carts[index].prodQuantity === 0){
+
+    //           if(product.title===this.carts[index].prodTitle){
+    //             this.carts.splice(index,1);
+    //           }
+
+    //       }else{
+    //         this.carts[index].prodQuantity--;
+    //       }
+    //       prodExists = true;
+
+    //       this.cartTotal = 0;
+    //       this.carts.forEach(p=>{
+    //         this.cartTotal += p.prodQuantity * p.prodPrice;
+    //       });
+    //       break;
+    //     }
+    // }
   }
   }
 }

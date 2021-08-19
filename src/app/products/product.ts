@@ -4,4 +4,5 @@ export interface Product {
   description:string,
   cover:string,
   price:number,
+  counterCart:number
 }
