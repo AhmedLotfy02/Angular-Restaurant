@@ -3,7 +3,6 @@
 <cart></cart>
 <div class="spacer3"></div>
 <app-right-side></app-right-side>
-
 <div class="outtergrid">
     <main>
         <div class="content" *ngFor="let product of products">
@@ -44,9 +43,8 @@
                         </mat-icon>
                         </button>
                     </div>
-                    <!-- new -->
+
                     <div *ngIf="!CartBoolean">
-                        <!-- <button mat-strocked-button (click)="addToCart(product, element)"> -->
                         <button mat-strocked-button>
                   <p #element>
                     <mat-icon (click)="handleAddToCart(product,'+')">add_circle</mat-icon>
@@ -55,7 +53,7 @@
                   <mat-icon (click)="handleAddToCart(product,'-')">remove_circle</mat-icon>
                 </button>
                     </div>
-                    <!-- new -->
+
                     <div class="spacer"></div>
                     <p>IQD ${{ product.price }}</p>
                 </div>

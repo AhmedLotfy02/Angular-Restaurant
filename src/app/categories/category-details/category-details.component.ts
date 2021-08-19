@@ -5,6 +5,9 @@ import { CartsService } from 'src/app/shopping-cart/carts.service';
 import { NgbModal, ModalDismissReasons } from '@ng-bootstrap/ng-bootstrap';
 import { MatIcon } from '@angular/material/icon';
 import { FavoritesService } from 'src/app/favorite/favorites.service';
+import { ProductsService } from 'src/app/products/products.service';
+import { CategoryService } from 'src/app/services/category.service';
+import { ActivatedRoute } from '@angular/router';
 
 @Component({
   selector: 'category-details',
@@ -13,6 +16,8 @@ import { FavoritesService } from 'src/app/favorite/favorites.service';
 })
 export class CategoryDetailsComponent implements OnInit {
   products: Product[] = PRODUCTS;
+  category:any;
+  categoryId:any = this.route.snapshot.paramMap.get("categoryId")?.split("=")[1];
   closeResult = '';
   counter = 0;
   CartBoolean = true;
@@ -64,10 +69,15 @@ export class CategoryDetailsComponent implements OnInit {
     }
   }
   constructor(
+    private productsService: ProductsService,
+    private categoryService: CategoryService,
     private cartsService: CartsService,
     private favoritesService: FavoritesService,
-    private modalService: NgbModal
-  ) {}
+    private modalService: NgbModal,
+    private route: ActivatedRoute,
+  ) {
+    this.category = this.categoryService.getCategoryDetails(this.categoryId);
+  }
 
   ngOnInit(): void {}
 

@@ -8,7 +8,7 @@ import { RightSideComponent } from './right-side/right-side.component';
 const routes: Routes = [
   { path: '', component: HomePageComponent },
   {
-    path: 'categoryDetails/:categoryTitle',
+    path: 'categoryDetails/:categoryId',
     component: CategoryDetailsComponent,
   },
   { path: 'pop', component: RightSideComponent },

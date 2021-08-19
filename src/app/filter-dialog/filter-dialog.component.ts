@@ -8,7 +8,8 @@ import { DialogData } from '../header/header.component';
   styleUrls: ['./filter-dialog.component.css']
 })
 export class FilterDialogComponent implements OnInit {
-  value=0;
+  minValue=0;
+  maxValue=0;
 
   constructor(public dialogRef: MatDialogRef<FilterDialogComponent>,
               @Inject (MAT_DIALOG_DATA) public data: DialogData) { }

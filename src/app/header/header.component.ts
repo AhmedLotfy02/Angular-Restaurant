@@ -54,7 +54,7 @@ export class HeaderComponent implements OnInit {
   maxPrice!: number;
   openDialog() {
     const dialogRef = this.dialog.open(FilterDialogComponent, {
-      width: '240px',
+      width: '280px',
       data: {
         category: this.category,
         minPrice: this.minPrice,
