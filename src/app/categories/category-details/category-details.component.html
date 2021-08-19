@@ -13,75 +13,77 @@
                             <img class="card-img" src="assets/images/{{ product.cover }}" alt="" (click)="open(content)" />
                         </a>
                         <div (click)="addToFav(product)">
-                          <span
-                              #emptyFav
-                              (click)="toggleFav(emptyFav)"
-                              class="card-wishlist material-icons"
-                              *ngIf="!FavoriteToggle">favorite_border</span>
-                          <span
-                            #filledFav
-                            (click)="toggleFav(filledFav)"
-                            class="card-wishlist material-icons"
-                            *ngIf="FavoriteToggle"
-                            >favorite</span>
-                        </div>
+                            <span #emptyFav (click)="toggleFav(emptyFav)" class="card-wishlist material-icons" *ngIf="!FavoriteToggle">favorite_border</span
+              >
+              <span
+                #filledFav
+                (click)="toggleFav(filledFav)"
+                class="card-wishlist material-icons"
+                *ngIf="FavoriteToggle"
+                >favorite</span
+              >
+            </div>
           </div>
           <div class="c">
             <div class="card-title">
               <p>{{ product.title }}</p>
             </div>
             <div class="card-body">
-              <div *ngIf="CartBoolean">
+              <div *ngIf="product.counterCart == 0">
                 <button
                   mat-strocked-button
-                  (click)="counterFunc();handleAddToCart(product, '')"
+                  (click)="counterFunc(); handleAddToCart(product, '')"
                 >
                   <p #element>العربة</p>
 
                   <mat-icon>
                     <span class="material-icons">shopping_basket</span>
-                        </mat-icon>
-                        </button>
-                    </div>
+                            </mat-icon>
+                            </button>
+                        </div>
 
-                    <div *ngIf="!CartBoolean">
-                        <button mat-strocked-button>
+                        <div *ngIf="product.counterCart !== 0">
+                            <button mat-strocked-button>
                   <p #element>
-                    <mat-icon (click)="handleAddToCart(product,'+')">add_circle</mat-icon>
+                    <mat-icon (click)="handleAddToCart(product, '+')"
+                      >add_circle</mat-icon
+                    >
                   </p>
                   <span>{{ product.counterCart }}</span>
-                  <mat-icon (click)="handleAddToCart(product,'-')">remove_circle</mat-icon>
+                  <mat-icon (click)="handleAddToCart(product, '-')"
+                    >remove_circle</mat-icon
+                  >
                 </button>
-                    </div>
+                        </div>
 
-                    <div class="spacer"></div>
-                    <p>IQD ${{ product.price }}</p>
+                        <div class="spacer"></div>
+                        <p>IQD ${{ product.price }}</p>
+                    </div>
                 </div>
         </div>
-</div>
-</mat-card>
+        </mat-card>
 
-<ng-template #content let-modal>
-    <div class="modal-header">
-        <button type="button" class="close" aria-label="Close" (click)="modal.dismiss('Cross click')">
+        <ng-template #content let-modal>
+            <div class="modal-header">
+                <button type="button" class="close" aria-label="Close" (click)="modal.dismiss('Cross click')">
             <span aria-hidden="true">&times;</span>
           </button>
-    </div>
-    <div class="insidePop modal-body">
-        <img class="imgPopup" src="assets/images/{{ product.cover }}" alt="" height="200" width="100" />
-        <div class="spacer"></div>
-        <section class="secondgrid">
-            <p class="titleClass">{{ product.title }}</p>
-            <p class="popupPrice">IQD ${{ product.price }}</p>
-        </section>
-        <hr />
-    </div>
-    <div class="modal-footer">
-        <button type="button" class="btn btn-outline-dark" (click)="modal.close('Save click')">
+            </div>
+            <div class="insidePop modal-body">
+                <img class="imgPopup" src="assets/images/{{ product.cover }}" alt="" height="200" width="100" />
+                <div class="spacer"></div>
+                <section class="secondgrid">
+                    <p class="titleClass">{{ product.title }}</p>
+                    <p class="popupPrice">IQD ${{ product.price }}</p>
+                </section>
+                <hr />
+            </div>
+            <div class="modal-footer">
+                <button type="button" class="btn btn-outline-dark" (click)="modal.close('Save click')">
             Save
           </button>
-    </div>
-</ng-template>
+            </div>
+        </ng-template>
 </div>
 </main>
 </div>
