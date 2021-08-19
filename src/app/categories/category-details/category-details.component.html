@@ -57,7 +57,7 @@
                         </div>
 
                         <div class="spacer"></div>
-                        <p>IQD ${{ product.price }}</p>
+                        <p class="priceInCard">IQD ${{ product.price }}</p>
                     </div>
                 </div>
         </div>
@@ -65,26 +65,86 @@
 
         <ng-template #content let-modal>
             <div class="modal-header">
-                <button type="button" class="close" aria-label="Close" (click)="modal.dismiss('Cross click')">
+                <!-- <button type="button" class="close" aria-label="Close" (click)="modal.dismiss('Cross click')">
             <span aria-hidden="true">&times;</span>
-          </button>
+          </button> -->
+                <p class="close material-icons" aria-label="Close" (click)="modal.dismiss('Cross click')">
+                    close
+                </p>
             </div>
             <div class="insidePop modal-body">
                 <img class="imgPopup" src="assets/images/{{ product.cover }}" alt="" height="200" width="100" />
                 <div class="spacer"></div>
                 <section class="secondgrid">
-                    <p class="titleClass">{{ product.title }}</p>
-                    <p class="popupPrice">IQD ${{ product.price }}</p>
+                    <section class="firstRowGrid">
+                        <p class="titleClass">{{ product.title }}</p>
+                        <br /><br />
+                        <p>{{ product.description }}</p>
+                        <br /><br />
+
+                        <!-- new fav -->
+                        <div class="favShareButton">
+                            <div class="favShareGrid">
+                                <div (click)="addToFav(product)">
+                                    <span #emptyFav (click)="toggleFav(emptyFav)" class="card-wishlist material-icons" *ngIf="!FavoriteToggle">favorite_border</span
+                    >
+                    <span
+                      #filledFav
+                      (click)="toggleFav(filledFav)"
+                      class="card-wishlist material-icons"
+                      *ngIf="FavoriteToggle"
+                      >favorite</span
+                    >
+                  </div>
+
+                  <i class="material-icons">ios_share</i>
+                </div>
+                <!-- new fav -->
+                <button class="shadowFlatButton" mat-flat-button>
+                  <p class="innerCardMostBottom">واجبات الكريب</p>
+                </button>
+              </div>
+            </section>
+            <section class="PriceACart">
+              <p class="popupPrice">IQD ${{ product.price }}</p>
+              <!-- new cart -->
+              <div class="card-body">
+                <div *ngIf="product.counterCart == 0">
+                  <button
+                    mat-strocked-button
+                    (click)="counterFunc(); handleAddToCart(product, '')"
+                  >
+                    <p #element>العربة</p>
+
+                    <mat-icon>
+                      <span class="material-icons">shopping_basket</span>
+                                    </mat-icon>
+                                    </button>
+                                </div>
+
+                                <div *ngIf="product.counterCart !== 0">
+                                    <button mat-strocked-button>
+                    <p #element>
+                      <mat-icon (click)="handleAddToCart(product, '+')"
+                        >add_circle</mat-icon
+                      >
+                    </p>
+                    <span>{{ product.counterCart }}</span>
+                    <mat-icon (click)="handleAddToCart(product, '-')"
+                      >remove_circle</mat-icon
+                    >
+                  </button>
+                                </div>
+                            </div>
+
+                            <!-- new cart -->
+                    </section>
                 </section>
+
                 <hr />
-            </div>
-            <div class="modal-footer">
-                <button type="button" class="btn btn-outline-dark" (click)="modal.close('Save click')">
-            Save
-          </button>
-            </div>
+                </div>
         </ng-template>
-</div>
-</main>
+        </div>
+    </main>
 </div>
 <footer></footer>
