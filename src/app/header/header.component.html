@@ -35,10 +35,11 @@
     <div class="search-form">
         <form>
             <mat-form-field appearance="outline" class="example-full-width">
-                <input class="inputSearch" matInput placeholder="ابحث عن منتجاتك من هنا" />
+                <input class="inputSearch" name="searchField" matInput placeholder="ابحث عن منتجاتك من هنا" [(ngModel)]="SearchField" />
                 <button class="SearchButton" mat-flat-button>
           <mat-icon> search </mat-icon>
         </button>
+
                 <button mat-raised-button (click)="openDialog()" class="filter-btn">
           Filter
         </button>

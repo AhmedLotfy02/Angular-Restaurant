@@ -4,6 +4,7 @@ import { CategoryDetailsComponent } from './categories/category-details/category
 import { HomePageComponent } from './home-page/home-page.component';
 import { OrderComponent } from './order/order.component';
 import { RightSideComponent } from './right-side/right-side.component';
+import { SearchResultsComponent } from './search-results/search-results.component';
 
 const routes: Routes = [
   { path: '', component: HomePageComponent },
@@ -12,6 +13,7 @@ const routes: Routes = [
     component: CategoryDetailsComponent,
   },
   { path: 'pop', component: RightSideComponent },
+  { path: 'results', component: SearchResultsComponent },
 ];
 
 @NgModule({

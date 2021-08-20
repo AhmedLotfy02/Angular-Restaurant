@@ -29,6 +29,7 @@ import { NgbModule } from '@ng-bootstrap/ng-bootstrap';
 import { FormsModule, ReactiveFormsModule } from '@angular/forms';
 import { RightSideComponent } from './right-side/right-side.component';
 import { FilterDialogComponent } from './filter-dialog/filter-dialog.component';
+import { SearchResultsComponent } from './search-results/search-results.component';
 @NgModule({
   declarations: [
     AppComponent,
@@ -43,6 +44,7 @@ import { FilterDialogComponent } from './filter-dialog/filter-dialog.component';
     ProductDetailsComponent,
     RightSideComponent,
     FilterDialogComponent,
+    SearchResultsComponent,
   ],
   imports: [
     BrowserModule,

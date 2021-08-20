@@ -1,11 +1,13 @@
 import { Component, OnInit } from '@angular/core';
 import { MatDialog } from '@angular/material/dialog';
+import { Router } from '@angular/router';
 import { Observable, OperatorFunction } from 'rxjs';
 import { debounceTime, distinctUntilChanged, map } from 'rxjs/operators';
 import { Favorite } from '../favorite/favorite';
 import { FavoritesService } from '../favorite/favorites.service';
 import { FilterDialogComponent } from '../filter-dialog/filter-dialog.component';
 import { Product } from '../products/product';
+import { ProductsService } from '../products/products.service';
 
 export interface DialogData {
   category: string;
@@ -20,10 +22,12 @@ export interface DialogData {
 })
 export class HeaderComponent implements OnInit {
   favorites: Favorite[] = [];
-
+  SearchField: String = '';
   constructor(
     private favoritesService: FavoritesService,
-    public dialog: MatDialog
+    public dialog: MatDialog,
+    private ProService: ProductsService,
+    private router: Router
   ) {}
 
   ngOnInit(): void {
@@ -106,4 +110,19 @@ export class HeaderComponent implements OnInit {
   deleteAll() {
     this.favorites.splice(0, this.favorites.length);
   }
+  // Searching() {
+  //   this.ProService.getSearching(this.SearchField);
+  //   // this.router.navigate(['results']);
+  // }
+  // Searching() {
+  //   this.ProService.getSearching(this.SearchField).subscribe(
+  //     (repsonseData: any) => {
+  //       console.log(repsonseData);
+  //       this.router.navigate(['/results', { ...repsonseData }]);
+  //       // this.SearchField = repsonseData.book;
+  //       // console.log(this.book);
+  //       // this.router.navigate(['/searchresult', { ...this.book }]);
+  //     }
+  //   );
+  // }
 }
