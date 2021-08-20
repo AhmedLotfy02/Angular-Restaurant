@@ -52,9 +52,8 @@ button {
     margin: 0px;
 }
 
-.example-sidenav{
-  width:400px;
-
+.example-sidenav {
+    width: 400px;
 }
 
 .example-container {
@@ -75,21 +74,24 @@ button {
     padding: 20px;
 }
 
-.cart-prod{
-  display:flex;
-  flex-direction: column;
-  justify-content: right;
-  text-align: right;
+.cart-prod {
+    display: flex;
+    flex-direction: column;
+    justify-content: right;
+    text-align: right;
 }
-.cart-prod-content{
-  display: flex;
+
+.cart-prod-content {
+    display: flex;
 }
-.cart-prod img{
-  width:100px;
+
+.cart-prod img {
+    width: 100px;
 }
-.cart-prod .cart-prod-details{
-  width:100%;
-  padding:10px;
+
+.cart-prod .cart-prod-details {
+    width: 100%;
+    padding: 10px;
 }
 
 .mat-stepper-horizontal {
@@ -116,4 +118,61 @@ button {
 .mat-step-header::before,
 .mat-stepper-horizontal-line {
     top: 42px !important;
+}
+
+.badgeTitle {
+    font-weight: bold;
+    color: white;
+}
+
+.spacer6 {
+    margin-right: 15em;
+}
+
+.TitleDrawer {
+    font-size: 20px;
+    color: #f5790c;
+}
+
+#iconDrawer {
+    font-size: 25px;
+    color: #f5790c;
+}
+
+#icon2Drawer {
+    font-size: 120px;
+    margin-left: 1em;
+    color: black;
+}
+
+.noPRoducts {
+    font-size: 20px;
+    text-align: center;
+}
+
+.inTalbButtonGrid {
+    display: flex;
+    flex-direction: row-reverse;
+    justify-content: space-between;
+}
+
+.buttonTalb {
+    margin-right: 1em;
+    color: white;
+    font-size: 20px;
+    font-weight: bold;
+    margin-top: 0.3em;
+}
+
+#btnInTalb {
+    width: auto;
+    height: 30px;
+    margin-top: 0.7em;
+    margin-left: 0.5em;
+    background-color: white;
+}
+
+.priceInBtnTalb {
+    font-size: 18px;
+    color: #f5790c;
 }
