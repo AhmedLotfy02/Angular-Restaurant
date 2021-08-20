@@ -96,5 +96,11 @@ export class HeaderComponent implements OnInit {
     console.log(this.favorites);
   }
 
-  deleteFromFav(product: Product) {}
+  deleteFromFav(product: Favorite) {
+    for (var k = 0; k < this.favorites.length; k++) {
+      if (product.prodTitle === this.favorites[k].prodTitle) {
+        this.favorites.splice(k, 1);
+      }
+    }
+  }
 }

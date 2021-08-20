@@ -1,3 +1,4 @@
+@import url("https://fonts.googleapis.com/css2?family=Permanent+Marker&display=swap");
 .header-section {
     display: flex;
     align-items: center;
@@ -240,4 +241,35 @@
     font-size: 20px;
     font-weight: bold;
     text-align: center;
+}
+
+.elementsInDrawer {
+    display: flex;
+    flex-direction: row-reverse;
+    gap: 2em;
+}
+
+.imgInDrawer {
+    width: 60px;
+    height: 60px;
+}
+
+.InDrawerTitleAPrice {
+    display: flex;
+    flex-direction: column;
+    gap: 1em;
+}
+
+.titleInDrawer {
+    font-size: 15px;
+    font-weight: bold;
+}
+
+.PriceInDrawer {
+    font-size: 15px;
+    color: #f5790c;
+}
+
+.CloseBuInDrawer {
+    margin-right: 8em;
 }

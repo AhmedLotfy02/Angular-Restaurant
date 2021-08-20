@@ -74,6 +74,25 @@
             <div class="fav-content">
                 <div class="favProd" *ngFor="let favProd of favorites">
                     <mat-card>
+                        <div class="elementsInDrawer">
+                            <!-- <button mat-stroked-button>
+              <mat-icon>
+                <span>shopping_basket</span>
+              </mat-icon>
+            </button> -->
+                            <a>
+                                <img class="imgInDrawer" src="assets/images/{{ favProd.prodImg }}" alt="" />
+                            </a>
+                            <div class="InDrawerTitleAPrice">
+                                <span class="titleInDrawer">{{ favProd.prodTitle }}</span>
+                                <span class="PriceInDrawer"> IQD {{ favProd.prodPrice }} </span>
+                            </div>
+                            <button mat-icon-button class="CloseBuInDrawer" (click)="deleteFromFav(favProd)">
+                <mat-icon>close</mat-icon>
+              </button>
+                        </div>
+                    </mat-card>
+                    <!-- <mat-card>
                         <div class="card">
                             <div class="card-cnt">
                                 <a>
@@ -98,9 +117,9 @@
                         </div>
                 </div>
             </div>
-            </mat-card>
+            </mat-card> -->
+                </div>
+            </div>
         </div>
-</div>
-</div>
-</mat-drawer>
+    </mat-drawer>
 </div>
