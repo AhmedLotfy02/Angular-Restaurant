@@ -103,4 +103,7 @@ export class HeaderComponent implements OnInit {
       }
     }
   }
+  deleteAll() {
+    this.favorites.splice(0, this.favorites.length);
+  }
 }

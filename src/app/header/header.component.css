@@ -223,7 +223,7 @@
 }
 
 .spacer5 {
-    margin-right: 19em;
+    margin-right: 13em;
 }
 
 .favInDrawer {
@@ -272,4 +272,9 @@
 
 .CloseBuInDrawer {
     margin-right: 8em;
+}
+
+.DeleteAll {
+    color: #f5790c;
+    font-size: 17px;
 }

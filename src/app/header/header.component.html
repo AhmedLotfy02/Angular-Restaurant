@@ -61,6 +61,11 @@
         <div class="sider">
             <div>
                 <a mat-button (click)="drawer.toggle(); toggleSide()">X</a>
+
+                <button mat-flat-button>
+          <span class="DeleteAll" (click)="deleteAll()">حذف الكل</span>
+        </button>
+
                 <span class="spacer5"></span>
                 <mat-icon><span class="favInDrawer">favorite</span></mat-icon>
             </div>
