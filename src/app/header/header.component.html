@@ -1,131 +1,132 @@
+
 <section #search class="search-section">
-    <div class="search-content">
-        <form>
-            <button mat-raised-button (click)="toggleSearchBar()">
-        <mat-icon> search </mat-icon>
-      </button>
-            <input type="text" />
-        </form>
-    </div>
-    <div class="search-back">
-        <button mat-button>
-      <mat-icon> arrow_forward </mat-icon>
+  <div class="search-content">
+      <form>
+          <button mat-raised-button (click)="toggleSearchBar()">
+      <mat-icon> search </mat-icon>
     </button>
-    </div>
+          <input type="text" />
+      </form>
+  </div>
+  <div class="search-back">
+      <button mat-button>
+    <mat-icon> arrow_forward </mat-icon>
+  </button>
+  </div>
 </section>
 
 <section class="header-section">
-    <div class="header-links">
-        <div class="whats-link" *ngIf="whatsappicon">
-            <a href="https://web.whatsapp.com/" target="_blank">
-                <mat-icon> whatsapp </mat-icon>
-            </a>
-        </div>
-        <div class="wishlist-link" *ngIf="favheart">
-            <button mat-stroked-button>
-        <mat-icon (click)="drawer.toggle(); toggleSide()"> favorite </mat-icon>
-      </button>
-        </div>
-        <div class="search">
-            <button (click)="onSearch(search)" mat-stroked-button>
+  <div class="header-links">
+      <div class="whats-link" *ngIf="whatsappicon">
+          <a href="https://web.whatsapp.com/" target="_blank">
+              <mat-icon> whatsapp </mat-icon>
+          </a>
+      </div>
+      <div class="wishlist-link" *ngIf="favheart">
+          <button mat-stroked-button>
+      <mat-icon (click)="drawer.toggle(); toggleSide()"> favorite </mat-icon>
+    </button>
+      </div>
+      <div class="search">
+          <button (click)="onSearch(search)" mat-stroked-button>
+      <mat-icon> search </mat-icon>
+    </button>
+      </div>
+  </div>
+  <div class="search-form">
+      <form>
+          <mat-form-field appearance="outline" class="example-full-width">
+              <input class="inputSearch" name="searchField" matInput placeholder="ابحث عن منتجاتك من هنا" [(ngModel)]="SearchField" />
+              <button class="SearchButton" mat-flat-button>
         <mat-icon> search </mat-icon>
       </button>
-        </div>
-    </div>
-    <div class="search-form">
-        <form>
-            <mat-form-field appearance="outline" class="example-full-width">
-                <input class="inputSearch" name="searchField" matInput placeholder="ابحث عن منتجاتك من هنا" [(ngModel)]="SearchField" />
-                <button class="SearchButton" mat-flat-button>
-          <mat-icon> search </mat-icon>
-        </button>
 
-                <button mat-raised-button (click)="openDialog()" class="filter-btn">
-          Filter
-        </button>
-            </mat-form-field>
-        </form>
-    </div>
-    <div class="logo-img">
-        <img src="../../assets/images/logo-6511d01347fe5c0c0c9f138587bdff10.png" />
-    </div>
+              <button mat-raised-button (click)="openD()" class="filter-btn">
+        Filter
+      </button>
+          </mat-form-field>
+      </form>
+  </div>
+  <div class="logo-img">
+      <img src="../../assets/images/logo-6511d01347fe5c0c0c9f138587bdff10.png" />
+  </div>
 </section>
-<div *ngIf="category">
-    Cat : {{ category }} min : {{ minPrice }} max : {{ maxPrice }}
-</div>
+<!-- <div *ngIf="category">
+  Cat : {{ category }} min : {{ minPrice }} max : {{ maxPrice }}
+</div> -->
 
 <div>
-    <mat-drawer-container class="example-container" autosize>
-    </mat-drawer-container>
-    <div class="example-sidenav-content"></div>
-    <mat-drawer #drawer class="example-sidenav" mode="side">
-        <div class="sider">
-            <div>
-                <a mat-button (click)="drawer.toggle(); toggleSide()">X</a>
+  <mat-drawer-container class="example-container" autosize>
+  </mat-drawer-container>
+  <div class="example-sidenav-content"></div>
+  <mat-drawer #drawer class="example-sidenav" mode="side">
+      <div class="sider">
+          <div>
+              <a mat-button (click)="drawer.toggle(); toggleSide()">X</a>
 
-                <button mat-flat-button>
-          <span class="DeleteAll" (click)="deleteAll()">حذف الكل</span>
-        </button>
+              <button mat-flat-button>
+        <span class="DeleteAll" (click)="deleteAll()">حذف الكل</span>
+      </button>
 
-                <span class="spacer5"></span>
-                <mat-icon><span class="favInDrawer">favorite</span></mat-icon>
+              <span class="spacer5"></span>
+              <mat-icon><span class="favInDrawer">favorite</span></mat-icon>
+          </div>
+
+          <br />
+          <div *ngIf="favorites.length === 0">
+              <mat-icon id="CartinDrawer">add_shopping_cart</mat-icon>
+              <div class="NoItemsInDrawer">لا توجد منتجات</div>
+          </div>
+
+          <div class="fav-content">
+              <div class="favProd" *ngFor="let favProd of favorites">
+                  <mat-card>
+                      <div class="elementsInDrawer">
+                          <!-- <button mat-stroked-button>
+            <mat-icon>
+              <span>shopping_basket</span>
+            </mat-icon>
+          </button> -->
+                          <a>
+                              <img class="imgInDrawer" src="assets/images/{{ favProd.prodImg }}" alt="" />
+                          </a>
+                          <div class="InDrawerTitleAPrice">
+                              <span class="titleInDrawer">{{ favProd.prodTitle }}</span>
+                              <span class="PriceInDrawer"> IQD {{ favProd.prodPrice }} </span>
+                          </div>
+                          <button mat-icon-button class="CloseBuInDrawer" (click)="deleteFromFav(favProd)">
+              <mat-icon>close</mat-icon>
+            </button>
+                      </div>
+                  </mat-card>
+                  <!-- <mat-card>
+                      <div class="card">
+                          <div class="card-cnt">
+                              <a>
+                                  <img class="card-img" src="assets/images/{{ favProd.prodImg }}" alt="" />
+                              </a>
+                              <span #filledFav class="card-wishlist material-icons">favorite</span
+              >
             </div>
-
-            <br />
-            <div *ngIf="favorites.length === 0">
-                <mat-icon id="CartinDrawer">add_shopping_cart</mat-icon>
-                <div class="NoItemsInDrawer">لا توجد منتجات</div>
-            </div>
-
-            <div class="fav-content">
-                <div class="favProd" *ngFor="let favProd of favorites">
-                    <mat-card>
-                        <div class="elementsInDrawer">
-                            <!-- <button mat-stroked-button>
-              <mat-icon>
-                <span>shopping_basket</span>
-              </mat-icon>
-            </button> -->
-                            <a>
-                                <img class="imgInDrawer" src="assets/images/{{ favProd.prodImg }}" alt="" />
-                            </a>
-                            <div class="InDrawerTitleAPrice">
-                                <span class="titleInDrawer">{{ favProd.prodTitle }}</span>
-                                <span class="PriceInDrawer"> IQD {{ favProd.prodPrice }} </span>
-                            </div>
-                            <button mat-icon-button class="CloseBuInDrawer" (click)="deleteFromFav(favProd)">
-                <mat-icon>close</mat-icon>
-              </button>
-                        </div>
-                    </mat-card>
-                    <!-- <mat-card>
-                        <div class="card">
-                            <div class="card-cnt">
-                                <a>
-                                    <img class="card-img" src="assets/images/{{ favProd.prodImg }}" alt="" />
-                                </a>
-                                <span #filledFav class="card-wishlist material-icons">favorite</span
-                >
+            <div class="c">
+              <div class="card-title">
+                <p>{{ favProd.prodTitle }}</p>
               </div>
-              <div class="c">
-                <div class="card-title">
-                  <p>{{ favProd.prodTitle }}</p>
-                </div>
-                <div class="card-body">
-                  <div>
-                    <button mat-strocked-button>
-                      <p #element>العربة</p>
-                      <mat-icon>
-                        <span class="material-icons">shopping_basket</span>
-                                </mat-icon>
-                                </button>
-                            </div>
-                        </div>
-                </div>
-            </div>
-            </mat-card> -->
-                </div>
-            </div>
-        </div>
-    </mat-drawer>
+              <div class="card-body">
+                <div>
+                  <button mat-strocked-button>
+                    <p #element>العربة</p>
+                    <mat-icon>
+                      <span class="material-icons">shopping_basket</span>
+                              </mat-icon>
+                              </button>
+                          </div>
+                      </div>
+              </div>
+          </div>
+          </mat-card> -->
+              </div>
+          </div>
+      </div>
+  </mat-drawer>
 </div>

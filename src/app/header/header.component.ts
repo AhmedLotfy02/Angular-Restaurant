@@ -1,19 +1,17 @@
+
 import { Component, OnInit } from '@angular/core';
 import { MatDialog } from '@angular/material/dialog';
 import { Router } from '@angular/router';
 import { Observable, OperatorFunction } from 'rxjs';
 import { debounceTime, distinctUntilChanged, map } from 'rxjs/operators';
+import { CategoryDetailsComponent } from '../categories/category-details/category-details.component';
 import { Favorite } from '../favorite/favorite';
 import { FavoritesService } from '../favorite/favorites.service';
-import { FilterDialogComponent } from '../filter-dialog/filter-dialog.component';
+//import { FilterDialogComponent } from '../filter-dialog/filter-dialog.component';
 import { Product } from '../products/product';
 import { ProductsService } from '../products/products.service';
 
-export interface DialogData {
-  category: string;
-  minPrice: number;
-  maxPrice: number;
-}
+
 
 @Component({
   selector: 'header',
@@ -25,17 +23,22 @@ export class HeaderComponent implements OnInit {
   SearchField: String = '';
   constructor(
     private favoritesService: FavoritesService,
-    public dialog: MatDialog,
+    //public dialog: MatDialog,
     private ProService: ProductsService,
-    private router: Router
+    private router: Router,
+    private cat:CategoryDetailsComponent
   ) {}
 
   ngOnInit(): void {
     this.favoritesService.viewProd().subscribe((product: any) => {
       this.addToFav(product);
     });
+
   }
 
+  openD(){
+    this.cat.openDialog();
+  }
   onSearch(search: HTMLElement) {
     //bs mesh h3mlha keda . h3mlha zi fel button sheet
     search.style.display = 'flex';
@@ -53,25 +56,7 @@ export class HeaderComponent implements OnInit {
     this.searchBar = !this.searchBar;
   }
 
-  category!: string;
-  minPrice!: number;
-  maxPrice!: number;
-  openDialog() {
-    const dialogRef = this.dialog.open(FilterDialogComponent, {
-      width: '280px',
-      data: {
-        category: this.category,
-        minPrice: this.minPrice,
-        maxPrice: this.maxPrice,
-      },
-    });
 
-    dialogRef.afterClosed().subscribe((result) => {
-      this.category = result.category;
-      this.minPrice = result.minPrice;
-      this.maxPrice = result.maxPrice;
-    });
-  }
 
   addToFav(product: Product) {
     let prodExists = false;

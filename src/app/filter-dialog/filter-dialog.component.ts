@@ -1,6 +1,6 @@
-import { Component, Inject, OnInit } from '@angular/core';
+ import { Component, Inject, OnInit } from '@angular/core';
 import { MatDialogRef, MAT_DIALOG_DATA } from '@angular/material/dialog';
-import { DialogData } from '../header/header.component';
+import { DialogData } from '../categories/category-details/category-details.component';
 
 @Component({
   selector: 'filter-dialog',
