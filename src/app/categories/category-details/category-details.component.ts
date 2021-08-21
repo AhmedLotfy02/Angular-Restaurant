@@ -12,6 +12,7 @@ import { MatDialog } from '@angular/material/dialog';
 import { FilterDialogComponent } from 'src/app/filter-dialog/filter-dialog.component';
 
 
+
 export interface DialogData {
   category: string;
   minPrice: number;
@@ -46,11 +47,18 @@ export class CategoryDetailsComponent implements OnInit {
         maxPrice: this.maxPrice,
       },
     });
+    const newProds:Product[] = [];
     dialogRef.afterClosed().subscribe((result) => {
       this.category = result.category;
       this.minPrice = result.minPrice;
       this.maxPrice = result.maxPrice;
       this.products = (this.category=="crepe") ? crepeProd : (this.category=="waffel") ? waffelProd : PRODUCTS;
+      for(let i=0; i<this.products.length;i++){
+        if(this.minPrice===this.products[i].price){
+          //I want to add these products to the product array . Do we use mapping?
+          console.log(this.products[i])
+        }
+      }
     });
 
 
