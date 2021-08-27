@@ -27,6 +27,9 @@
           <div class="c">
             <div class="card-title">
               <p>{{ product.title }}</p>
+              <div *ngIf="true">
+                Cat : {{ category }} min : {{ minPrice }} max : {{ maxPrice }}
+            </div>
             </div>
             <div class="card-body">
               <div *ngIf="product.counterCart == 0">

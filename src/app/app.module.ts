@@ -9,7 +9,7 @@ import { MatSidenavModule } from '@angular/material/sidenav';
 import { MatIconModule } from '@angular/material/icon';
 import { MatGridListModule } from '@angular/material/grid-list';
 import { MatStepperModule } from '@angular/material/stepper';
-import {MatDialogModule} from '@angular/material/dialog';
+import {MatDialogModule, MAT_DIALOG_DATA} from '@angular/material/dialog';
 import {MatSliderModule} from '@angular/material/slider';
 
 import { AppRoutingModule } from './app-routing.module';
@@ -66,7 +66,9 @@ import { SearchResultsComponent } from './search-results/search-results.componen
     MatDialogModule,
     MatSliderModule
   ],
-  providers: [],
+  providers: [
+    CategoryDetailsComponent,
+  ],
   bootstrap: [AppComponent],
 })
 export class AppModule {}

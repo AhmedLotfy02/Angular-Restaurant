@@ -1,5 +1,5 @@
 import { Component, OnInit } from '@angular/core';
-import { PRODUCTS } from 'src/app/products/mock-product';
+import { crepeProd, PRODUCTS, waffelProd } from 'src/app/products/mock-product';
 import { Product } from 'src/app/products/product';
 import { CartsService } from 'src/app/shopping-cart/carts.service';
 import { NgbModal, ModalDismissReasons } from '@ng-bootstrap/ng-bootstrap';
@@ -8,6 +8,16 @@ import { FavoritesService } from 'src/app/favorite/favorites.service';
 import { ProductsService } from 'src/app/products/products.service';
 import { CategoryService } from 'src/app/services/category.service';
 import { ActivatedRoute } from '@angular/router';
+import { MatDialog } from '@angular/material/dialog';
+import { FilterDialogComponent } from 'src/app/filter-dialog/filter-dialog.component';
+
+
+
+export interface DialogData {
+  category: string;
+  minPrice: number;
+  maxPrice: number;
+}
 
 @Component({
   selector: 'category-details',
@@ -15,13 +25,46 @@ import { ActivatedRoute } from '@angular/router';
   styleUrls: ['./category-details.component.css'],
 })
 export class CategoryDetailsComponent implements OnInit {
-  products: Product[] = PRODUCTS;
-  category:any;
+
+  //category:any;
   categoryId:any = this.route.snapshot.paramMap.get("categoryId")?.split("=")[1];
+  products: Product[] =  PRODUCTS;
   closeResult = '';
   counter = 0;
   CartBoolean = true;
   FavoriteToggle = false;
+
+
+  category!: string;
+  minPrice!: number;
+  maxPrice!: number;
+  openDialog() {
+    const dialogRef = this.dialog.open(FilterDialogComponent, {
+      width: '280px',
+      data: {
+        category: this.category,
+        minPrice: this.minPrice,
+        maxPrice: this.maxPrice,
+      },
+    });
+    const newProds:Product[] = [];
+    dialogRef.afterClosed().subscribe((result) => {
+      this.category = result.category;
+      this.minPrice = result.minPrice;
+      this.maxPrice = result.maxPrice;
+      this.products = (this.category=="crepe") ? crepeProd : (this.category=="waffel") ? waffelProd : PRODUCTS;
+      for(let i=0; i<this.products.length;i++){
+        if(this.minPrice===this.products[i].price){
+          //I want to add these products to the product array . Do we use mapping?
+          console.log(this.products[i])
+        }
+      }
+    });
+
+
+  }
+
+
   toggleFav(icon:HTMLElement) {
     //this.FavoriteToggle = !this.FavoriteToggle;
 
@@ -31,17 +74,7 @@ export class CategoryDetailsComponent implements OnInit {
       icon.innerHTML = "favorite_border"
     }
   }
-  /* inc_Counter() {
-    this.counter++;
-  } */
-  /* dec_counter() {
-    if (this.counter === 1) {
-      this.counter--;
-      this.CartBoolean = true;
-    } else {
-      this.counter--;
-    }
-  } */
+
   counterFunc() {
     if (!this.counter) {
       this.CartBoolean = false;
@@ -75,24 +108,13 @@ export class CategoryDetailsComponent implements OnInit {
     private favoritesService: FavoritesService,
     private modalService: NgbModal,
     private route: ActivatedRoute,
+    public dialog: MatDialog,
   ) {
-    this.category = this.categoryService.getCategoryDetails(this.categoryId);
+    //this.category = this.categoryService.getCategoryDetails(this.categoryId);
   }
 
-  ngOnInit(): void {}
-
-  /* addToCart(product: Product, element: HTMLElement) {
-    const cartProdImg = document.createElement('img');
-    cartProdImg.src = 'assets/images/' + product.cover;
-    cartProdImg.className = 'cartProdImg';
-    cartProdImg.draggable = false;
-    cartProdImg.width = 50;
-    cartProdImg.style.animation = 'mymove 5s infinite';
-    cartProdImg.style.animationTimingFunction = 'ease-in-out';
-
-    element.appendChild(cartProdImg);
-    console.log('This is added by user', this.cartsService.getProducts());
-  } */
+  ngOnInit(): void {
+  }
 
   handleAddToCart(product: Product, count:string){
 
@@ -108,14 +130,6 @@ export class CategoryDetailsComponent implements OnInit {
         product.counterCart--;
       }
     }
-    // if(this.counter === 0 ){
-    //   this.CartBoolean = false;
-    // }
-    // if(this.counter != 0){
-    //     this.counter--;
-    //   }
-
-
 
     this.cartsService.receiveProd(product, count);
   }
