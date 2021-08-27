@@ -36,7 +36,7 @@
         <form>
             <mat-form-field appearance="outline" class="example-full-width">
                 <input class="inputSearch" name="searchField" matInput placeholder="ابحث عن منتجاتك من هنا" [(ngModel)]="SearchField" />
-                <button class="SearchButton" mat-flat-button>
+                <button class="SearchButton" (click)="Searching()" mat-flat-button>
           <mat-icon> search </mat-icon>
         </button>
 

@@ -13,7 +13,7 @@ const routes: Routes = [
     component: CategoryDetailsComponent,
   },
   { path: 'pop', component: RightSideComponent },
-  { path: 'results', component: SearchResultsComponent },
+  { path: 'results/:search', component: SearchResultsComponent },
 ];
 
 @NgModule({

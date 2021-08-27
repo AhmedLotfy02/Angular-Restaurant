@@ -1,6 +1,52 @@
 <header></header>
 <cart></cart>
 <mat-card>
-    <p>{{ res }}</p>
+    <section *ngFor="let pro of searchProducts">
+        <mat-card>
+            <div class="card">
+                <div class="card-cnt">
+                    <a>
+                        <img class="card-img" src="assets/images/{{ pro.cover }}" alt="" />
+                    </a>
+                    <div>
+                        <span #emptyFav class="card-wishlist material-icons">favorite_border</span
+            >
+            <span #filledFav class="card-wishlist material-icons"
+              >favorite</span
+            >
+          </div>
+        </div>
+        <div class="c">
+          <div class="card-title">
+            <p>{{ pro.title }}</p>
+          </div>
+          <div class="card-body">
+            <div *ngIf="pro.counterCart == 0">
+              <button mat-strocked-button>
+                <p #element>العربة</p>
+
+                <mat-icon>
+                  <span class="material-icons">shopping_basket</span>
+                        </mat-icon>
+                        </button>
+                    </div>
+
+                    <div *ngIf="pro.counterCart !== 0">
+                        <button mat-strocked-button>
+                <p #element>
+                  <mat-icon>add_circle</mat-icon>
+                </p>
+                <span>{{ pro.counterCart }}</span>
+                <mat-icon>remove_circle</mat-icon>
+              </button>
+                    </div>
+
+                    <div class="spacer"></div>
+                    <p class="priceInCard">IQD ${{ pro.price }}</p>
+                </div>
+            </div>
+            </div>
+        </mat-card>
+    </section>
 </mat-card>
 <footer></footer>

@@ -110,10 +110,11 @@ export class HeaderComponent implements OnInit {
   deleteAll() {
     this.favorites.splice(0, this.favorites.length);
   }
-  // Searching() {
-  //   this.ProService.getSearching(this.SearchField);
-  //   // this.router.navigate(['results']);
-  // }
+  Searching() {
+    // this.router.navigate(['results']);
+    this.router.navigateByUrl('/results/' + this.SearchField);
+  }
+
   // Searching() {
   //   this.ProService.getSearching(this.SearchField).subscribe(
   //     (repsonseData: any) => {

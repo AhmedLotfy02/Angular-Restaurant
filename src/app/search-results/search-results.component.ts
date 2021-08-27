@@ -1,5 +1,7 @@
 import { Component, OnInit } from '@angular/core';
 import { ActivatedRoute } from '@angular/router';
+import { PRODUCTS } from '../products/mock-product';
+import { Product } from '../products/product';
 import { ProductsService } from '../products/products.service';
 
 @Component({
@@ -12,8 +14,21 @@ export class SearchResultsComponent implements OnInit {
     private ProdService: ProductsService,
     private route: ActivatedRoute
   ) {}
-  res!: String;
+  res!: string;
+  searchProducts: Product[] = [];
+  products: Product[] = PRODUCTS;
   ngOnInit(): void {
+    this.route.params.subscribe((params) => {
+      if (params.search) {
+        this.res = params.search;
+        var proTemp = this.products;
+        this.searchProducts = this.products.filter((food) =>
+          food.title.includes(this.res)
+        );
+        this.products = proTemp;
+      }
+    });
+
     // // this.cartsService.viewProd().subscribe((result:any)=>{
     // //   this.ProdService.viewSearching().subscribe((result: any) => {
     // //     this.res = result;
