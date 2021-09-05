@@ -35,20 +35,28 @@
       <!-- <a mat-button routerLink="/" routerLinkActive="mat-accent">DashBoard</a>
       <br />
       <a mat-button routerLink="/" routerLinkActive="mat-accent">My Cart</a> -->
-      <div class="cart-prod">
+      <div class="prodcontainer">
         <div class="cart-prod-content" *ngFor="let cartProd of carts">
-          <cart-details [prodItem]="carts"></cart-details>
+          <!-- <cart-details [prodItem]="carts"></cart-details> -->
           <div *ngIf="cartProd.prodQuantity !== 0">
-            <div class="cart-prod-details">
-              <p>{{ cartProd.prodTitle }}</p>
-              <p>IQD {{ cartProd.prodPrice }}</p>
-              <h5>
-                {{ cartProd.prodPrice }}<span> × </span
-                >{{ cartProd.prodQuantity }}
-              </h5>
+            <!-- <div class="cart-prod-details">          -->
+            <div id="griding1">
+              <section>
+                <img
+                  src="assets/images/{{ cartProd.prodImg }}"
+                  width="100px"
+                  height="100px"
+                />
+              </section>
+              <section>
+                <p class="Prodtitleincart">{{ cartProd.prodTitle }}</p>
+                <p class="ProdPriceincart">IQD {{ cartProd.prodPrice }}</p>
+                <h4 class="calc">
+                  {{ cartProd.prodPrice }}<span> × </span
+                  >{{ cartProd.prodQuantity }}
+                </h4>
+              </section>
             </div>
-
-            <img src="assets/images/{{ cartProd.prodImg }}" />
           </div>
         </div>
       </div>
