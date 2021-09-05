@@ -1,5 +1,6 @@
 export interface Menu {
-  id:string,
-  title:string,
-  cover:string,
+  id: string;
+  title: string;
+  cover: string;
+  router: string;
 }
