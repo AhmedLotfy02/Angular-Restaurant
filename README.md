@@ -15,9 +15,9 @@
       <li><a href="#Running">Running </a> </li>
     </ul> 
   </li>  
-  <li>Screenshots </li>
-  <li>File Structure</li>
-  <li>Contributors</li>
+    <li><a href="#structure">File Structure</a></li>
+  <li><a href="#screenshots">Screenshots</a> </li>
+  <li><a href="#contributors">Contributors</a></li>
   
   
 </ul>
@@ -31,43 +31,98 @@ This is our First Project using these technologies so it can't be the most optim
 </blockquote>
 <h3>Build with</h3>
 <ul>
-  <li><a href="https://angular.io/">Angular Js</a></li>
+  <li><a href="https://angular.io/">Angular JS</a></li>
   <li><a href="https://ng-bootstrap.github.io/">ngBootstrap</a></li>
   <li><a href="https://valor-software.com/ngx-bootstrap/#/">ngxBootstrap</a></li>
 
 </ul>
 
-<h2>Getting Started</h2>
+<h2 href="#getStarted">Getting Started</h2>
 <blockquote>
   <p>This is an list of needed instructions to set up your project locally, to get a local copy up and running follow these instructuins.
  </p>
 </blockquote>
-<h3>Installation</h3>
+<h3 href="#installation">Installation</h3>
 <ol>
-  <li><strong><em>Clone the repository</em></strong></li>
+  <li><strong><em>Clone the repository</em></strong>
+    <blockquote>$ git clone https://github.com/AhmedLotfy02/Angular-Restaurant.git</blockquote>
+  </li>
+  <li> 
+  <strong><em>Navigate to repository directory
+</em></strong>
+    <blockquote>$ cd Angular-Restaurant</blockquote>
+  </li>
+  <li> 
+  <strong><em>Install dependencies
+</em></strong>
+    <blockquote>$ npm install</blockquote>
+  </li>
 </ol>
-This project was generated with [Angular CLI](https://github.com/angular/angular-cli) version 12.1.4.
+<h3>Running</h3>
+<ol>
+  <li><strong><em>Compiles and Development </em></strong>
+    <blockquote>Run `ng serve` for a dev server. Navigate to `http://localhost:4200/`. The app will automatically reload if you change any of the source files.
+</blockquote>
+  </li>
+    <li><strong><em>To Build </em></strong>
+    <blockquote>Run `ng build` to build the project. The build artifacts will be stored in the `dist/` directory.
 
-## Development server
+</blockquote>
+  </li>
+    <li><strong><em>Running unit tests </em></strong>
+    <blockquote>Run `ng test` to execute the unit tests via [Karma](https://karma-runner.github.io).
+</blockquote>
+  </li>
+ 
+</ol>
 
-Run `ng serve` for a dev server. Navigate to `http://localhost:4200/`. The app will automatically reload if you change any of the source files.
+<h2>File Structure</h2>
+ <div> 
+  <pre>
+Angular Restaurant
+├── README.md
+├── LICENSE
+├── package-lock.json
+├── package.json
+├── .gitignore
+├── .browserslistrc
+├── tsconfig.app.json
+├── tsconfig.json  
+├── .tsconfig.spec.json
+├── src
+│   ├── environments
+│   ├── assets
+│   ├── app
+|   |   ├── categories
+|   |   ├── filter-dialog	
+|   |   ├── home-page	
+|   |   ├── footer	
+|   |   ├── header	
+|   |   ├── menu	
+|   |   ├── products	
+|   |   ├── right-side	
+|   |   ├── search-results	
+|   |   ├── services	
+|   |   ├── shopping-cart	
+|   |   ├── app.component.css	
+|   |   ├── app.component.html	
+|   |   ├── app.component.spec.ts	
+|   |   ├── app.component.ts	
+|   |   ├── app.module.ts	
+|   |   ├── app-routing.module.ts	
+|   |   ├── menu.ts
+|   |   ├── mock-menu.ts
+│   ├── main.ts
+|   ├── polyfills.ts
+│   └── test.ts
+│   └── styles.css
+|   |── favicon.ico	
+|   |── index.html	
+└── node_modules	
+  </pre>
+</div>
 
-## Code scaffolding
+<h2 href="#screenshots">ScreenShots</h2>
 
-Run `ng generate component component-name` to generate a new component. You can also use `ng generate directive|pipe|service|class|guard|interface|enum|module`.
 
-## Build
 
-Run `ng build` to build the project. The build artifacts will be stored in the `dist/` directory.
-
-## Running unit tests
-
-Run `ng test` to execute the unit tests via [Karma](https://karma-runner.github.io).
-
-## Running end-to-end tests
-
-Run `ng e2e` to execute the end-to-end tests via a platform of your choice. To use this command, you need to first add a package that implements end-to-end testing capabilities.
-
-## Further help
-
-To get more help on the Angular CLI use `ng help` or go check out the [Angular CLI Overview and Command Reference](https://angular.io/cli) page.
