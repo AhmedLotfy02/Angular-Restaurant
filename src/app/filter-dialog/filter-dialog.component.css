@@ -1,3 +1,19 @@
-mat-slider{
-  margin-left:10px;
+mat-slider {
+    margin-left: 10px;
+}
+
+.mat-radio-button~.mat-radio-button {
+    margin-left: 16px;
+}
+
+.radiogrid {
+    display: flex;
+    flex-direction: column;
+    justify-content: flex-end;
+    gap: 1em;
+    float: right;
+}
+
+.labelabove {
+    float: right;
 }

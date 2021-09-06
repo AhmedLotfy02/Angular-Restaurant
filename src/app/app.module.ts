@@ -9,8 +9,9 @@ import { MatSidenavModule } from '@angular/material/sidenav';
 import { MatIconModule } from '@angular/material/icon';
 import { MatGridListModule } from '@angular/material/grid-list';
 import { MatStepperModule } from '@angular/material/stepper';
-import {MatDialogModule, MAT_DIALOG_DATA} from '@angular/material/dialog';
-import {MatSliderModule} from '@angular/material/slider';
+import { MatDialogModule, MAT_DIALOG_DATA } from '@angular/material/dialog';
+import { MatSliderModule } from '@angular/material/slider';
+import { MatRadioModule } from '@angular/material/radio';
 
 import { AppRoutingModule } from './app-routing.module';
 import { AppComponent } from './app.component';
@@ -64,11 +65,10 @@ import { SearchResultsComponent } from './search-results/search-results.componen
     ReactiveFormsModule,
     NgbModule,
     MatDialogModule,
-    MatSliderModule
+    MatSliderModule,
+    MatRadioModule,
   ],
-  providers: [
-    CategoryDetailsComponent,
-  ],
+  providers: [CategoryDetailsComponent],
   bootstrap: [AppComponent],
 })
 export class AppModule {}

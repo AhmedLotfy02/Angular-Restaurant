@@ -60,17 +60,35 @@ export class CategoryDetailsComponent implements OnInit {
       this.minPrice = result.minPrice;
       this.maxPrice = result.maxPrice;
       this.products =
-        this.category == 'crepe'
+        this.category == 'واجبات كريب'
           ? crepeProd
-          : this.category == 'waffel'
+          : this.category == 'واجبات وافل'
           ? waffelProd
-          : PRODUCTS;
+          : this.category == 'تسونامي كراند'
+          ? tsunamiProd
+          : this.category == 'اللقيمات'
+          ? lokaymatProd
+          : this.category == 'بان كيك'
+          ? pancakeProd
+          : this.category == 'المعجنات'
+          ? mo3gnatProd
+          : this.category == 'اطباق العيد'
+          ? eidProd
+          : [];
+      const filteredProducts: Product[] = [];
       for (let i = 0; i < this.products.length; i++) {
-        if (this.minPrice === this.products[i].price) {
-          //I want to add these products to the product array . Do we use mapping?
-          console.log(this.products[i]);
+        // if (this.minPrice === this.products[i].price) {
+        //   //I want to add these products to the product array . Do we use mapping?
+        //   console.log(this.products[i]);
+        // }
+        if (
+          this.products[i].price >= this.minPrice &&
+          this.products[i].price <= this.maxPrice
+        ) {
+          filteredProducts.push(this.products[i]);
         }
       }
+      this.products = filteredProducts;
     });
   }
 

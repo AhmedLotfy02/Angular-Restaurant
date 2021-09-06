@@ -1,39 +1,107 @@
 <div mat-dialog-content>
-      <mat-label>Category Name</mat-label>
-        <input matInput [(ngModel)]="data.category"><br/>
-      <label>Min Price {{minValue}}</label>
-      <mat-slider class="example-margin"
-      thumbLabel
-      min="0"
-      max="10"
-      step="0.5"
-      value="0"
-      [(ngModel)]="data.minPrice"
-      [(ngModel)]="minValue"
-      >
-    </mat-slider><br/>
-    <label>Max Price {{maxValue}}</label>
-      <mat-slider class="example-margin"
-      thumbLabel
-      min="0"
-      max="10"
-      step="0.5"
-      value="0"
-      [(ngModel)]="data.maxPrice"
-      [(ngModel)]="maxValue"
-      >
+    <mat-label class="labelabove">اختر القائمة</mat-label>
+    <br />
+    <mat-radio-group class="radiogrid" aria-label="Select an option">
+        <label>
+      واجبات كريب
+      <input
+        class="form-check-input"
+        type="radio"
+        value="1"
+        [(ngModel)]="data.category"
+        name="gob1"
+        value="واجبات كريب"
+        [checked]="true"
+      />
+    </label>
+        <label>
+      واجبات وافل
+      <input
+        class="form-check-input"
+        type="radio"
+        value="2"
+        [(ngModel)]="data.category"
+        name="gob2"
+        value="واجبات وافل"
+        [checked]="true"
+      />
+    </label>
+        <label>
+      تسونامي كراند
+      <input
+        class="form-check-input"
+        type="radio"
+        value="3"
+        [(ngModel)]="data.category"
+        name="gob3"
+        value="تسونامي كراند"
+        [checked]="true"
+      />
+    </label>
+        <label>
+      اللقيمات
+      <input
+        class="form-check-input"
+        type="radio"
+        value="4"
+        [(ngModel)]="data.category"
+        name="gob4"
+        value="اللقيمات"
+        [checked]="true"
+      />
+    </label>
+        <label>
+      بان كيك
+      <input
+        class="form-check-input"
+        type="radio"
+        value="5"
+        [(ngModel)]="data.category"
+        name="gob5"
+        value="بان كيك"
+        [checked]="true"
+      />
+    </label>
+        <label>
+      المعجنات
+      <input
+        class="form-check-input"
+        type="radio"
+        value="6"
+        [(ngModel)]="data.category"
+        name="gob6"
+        value="المعجنات"
+        [checked]="true"
+      />
+    </label>
+
+        <label>
+      اطباق العيد
+      <input
+        class="form-check-input"
+        type="radio"
+        value="7"
+        [(ngModel)]="data.category"
+        name="gob7"
+        value="اطباق العيد"
+        [checked]="true"
+      />
+    </label>
+    </mat-radio-group>
+    <!-- <input matInput [(ngModel)]="data.category" /><br /> -->
+    <br />
+    <label>Min Price {{ minValue }}</label>
+    <mat-slider class="example-margin" thumbLabel min="0" max="10" step="0.5" value="0" [(ngModel)]="data.minPrice" [(ngModel)]="minValue">
+    </mat-slider><br />
+    <label>Max Price {{ maxValue }}</label>
+    <mat-slider class="example-margin" thumbLabel min="0" max="10" step="0.5" value="0" [(ngModel)]="data.maxPrice" [(ngModel)]="maxValue">
     </mat-slider>
 </div>
 
 <div mat-dialog-actions>
-  <button mat-button (click)="onNoClick()">
-    Cancel
-  </button>
-  <button mat-button [mat-dialog-close]="data">
-    Ok
-  </button>
+    <button mat-button (click)="onNoClick()">Cancel</button>
+    <button mat-button [mat-dialog-close]="data">Ok</button>
 </div>
-
 
 <!-- <div>
   <mat-slider class="example-margin"
