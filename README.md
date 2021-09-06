@@ -25,11 +25,11 @@
 <blockquote>
 This is our First Project using these technologies so it can't be the most optimized one and the files aren't organized in such perfect way ,we are still learning so wish us best of luck ^ ^.
 </blockquote>
-<h2>About</h2>
+<h2 href="#about">About</h2>
 <blockquote>
   <p>Angular Restaurant is a web-view app which is clone from a website,built using <a href="https://angular.io/">Angularjs.</a> </p>
 </blockquote>
-<h3>Build with</h3>
+<h3 href="#build">Build with</h3>
 <ul>
   <li><a href="https://angular.io/">Angular JS</a></li>
   <li><a href="https://ng-bootstrap.github.io/">ngBootstrap</a></li>
@@ -58,7 +58,7 @@ This is our First Project using these technologies so it can't be the most optim
     <blockquote>$ npm install</blockquote>
   </li>
 </ol>
-<h3>Running</h3>
+<h3 href="#Running">Running</h3>
 <ol>
   <li><strong><em>Compiles and Development </em></strong>
     <blockquote>Run `ng serve` for a dev server. Navigate to `http://localhost:4200/`. The app will automatically reload if you change any of the source files.
@@ -76,7 +76,7 @@ This is our First Project using these technologies so it can't be the most optim
  
 </ol>
 
-<h2>File Structure</h2>
+<h2 href="#structure">File Structure</h2>
  <div> 
   <pre>
 Angular Restaurant
@@ -124,5 +124,21 @@ Angular Restaurant
 
 <h2 href="#screenshots">ScreenShots</h2>
 
-
+<h2 href="#contributors">Contributors</h2>
+<table>
+  <tbody>
+    <tr>
+    <td align="center">
+  <img src="https://user-images.githubusercontent.com/76037906/132257122-e9ea49d8-a912-4d19-8425-08d3847c96a6.jpg" alt="Ahmed Lotfy" width="150px">
+      <br>
+      <sub href="https://github.com/AhmedLotfy02"><strong>Ahmed Lotfy</strong></sub>
+  </td> 
+   <td align="center">
+  <img src="https://user-images.githubusercontent.com/76037906/132257488-19d6432e-416a-466e-bbc6-784e9ff7dfdc.jpg" alt="Rowan Omar" width="150px">
+      <br>
+      <sub href="https://github.com/Rowan-Omar"><strong>Rowan Omar</strong></sub>
+  </td> 
+    </tr>
+  </tbody>
+</table>
 
