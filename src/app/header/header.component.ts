@@ -1,4 +1,3 @@
-
 import { Component, OnInit } from '@angular/core';
 import { MatDialog } from '@angular/material/dialog';
 import { Router } from '@angular/router';
@@ -10,8 +9,6 @@ import { FavoritesService } from '../favorite/favorites.service';
 //import { FilterDialogComponent } from '../filter-dialog/filter-dialog.component';
 import { Product } from '../products/product';
 import { ProductsService } from '../products/products.service';
-
-
 
 @Component({
   selector: 'header',
@@ -26,17 +23,16 @@ export class HeaderComponent implements OnInit {
     //public dialog: MatDialog,
     private ProService: ProductsService,
     private router: Router,
-    private cat:CategoryDetailsComponent
+    private cat: CategoryDetailsComponent
   ) {}
 
   ngOnInit(): void {
     this.favoritesService.viewProd().subscribe((product: any) => {
       this.addToFav(product);
     });
-
   }
 
-  openD(){
+  openD() {
     this.cat.openDialog();
   }
   onSearch(search: HTMLElement) {
@@ -55,8 +51,6 @@ export class HeaderComponent implements OnInit {
   toggleSearchBar() {
     this.searchBar = !this.searchBar;
   }
-
-
 
   addToFav(product: Product) {
     let prodExists = false;
@@ -111,4 +105,8 @@ export class HeaderComponent implements OnInit {
   //     }
   //   );
   // }
+
+  goHome() {
+    this.router.navigate(['/']);
+  }
 }
