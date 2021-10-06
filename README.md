@@ -18,7 +18,6 @@
   </li>  
     <li><a href="#structure">File Structure</a></li>
   <li><a href="#screenshots">Screenshots</a> </li>
-  <li><a href="#contributors">Contributors</a></li>
   
   
 </ul>
@@ -125,21 +124,4 @@ Angular Restaurant
 
 <h2 href="#screenshots">ScreenShots</h2>
 
-<h2 href="#contributors">Contributors</h2>
-<table>
-  <tbody>
-    <tr>
-    <td align="center">
-  <img src="https://user-images.githubusercontent.com/76037906/132257122-e9ea49d8-a912-4d19-8425-08d3847c96a6.jpg" alt="Ahmed Lotfy" width="150px">
-      <br>
-      <sub href="https://github.com/AhmedLotfy02"><strong>Ahmed Lotfy</strong></sub>
-  </td> 
-   <td align="center">
-  <img src="https://user-images.githubusercontent.com/76037906/132257488-19d6432e-416a-466e-bbc6-784e9ff7dfdc.jpg" alt="Rowan Omar" width="150px">
-      <br>
-      <sub href="https://github.com/Rowan-Omar"><strong>Rowan Omar</strong></sub>
-  </td> 
-    </tr>
-  </tbody>
-</table>
 
