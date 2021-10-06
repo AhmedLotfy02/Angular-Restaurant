@@ -16,7 +16,7 @@ import { MatIcon } from '@angular/material/icon';
 import { FavoritesService } from 'src/app/favorite/favorites.service';
 import { ProductsService } from 'src/app/products/products.service';
 import { CategoryService } from 'src/app/services/category.service';
-import { ActivatedRoute } from '@angular/router';
+import { ActivatedRoute, Router } from '@angular/router';
 import { MatDialog } from '@angular/material/dialog';
 import { FilterDialogComponent } from 'src/app/filter-dialog/filter-dialog.component';
 
@@ -102,6 +102,9 @@ export class CategoryDetailsComponent implements OnInit {
     }
   }
 
+  goHome() {
+    this.router.navigate(['/']);
+  }
   counterFunc() {
     if (!this.counter) {
       this.CartBoolean = false;
@@ -135,7 +138,8 @@ export class CategoryDetailsComponent implements OnInit {
     private favoritesService: FavoritesService,
     private modalService: NgbModal,
     private route: ActivatedRoute,
-    public dialog: MatDialog
+    public dialog: MatDialog,
+    private router: Router
   ) {
     //this.category = this.categoryService.getCategoryDetails(this.categoryId);
   }

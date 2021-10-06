@@ -3,7 +3,7 @@
 <cart></cart>
 <div class="spacer3"></div>
 <app-right-side></app-right-side>
-<div class="outtergrid">
+<div class="outtergrid animate__animated animate__bounceIn">
     <main>
         <div class="content" *ngFor="let product of products">
             <mat-card>
@@ -103,8 +103,12 @@
                   <i class="material-icons">ios_share</i>
                 </div>
                 <!-- new fav -->
-                <button class="shadowFlatButton" mat-flat-button>
-                  <p class="innerCardMostBottom">واجبات الكريب</p>
+                <button
+                  class="shadowFlatButton"
+                  mat-flat-button
+                  (click)="goHome(); modal.dismiss('Cross click')"
+                >
+                  <p class="innerCardMostBottom">الصفحة الرئيسية</p>
                 </button>
               </div>
             </section>

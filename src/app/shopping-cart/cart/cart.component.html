@@ -106,7 +106,7 @@
             </ng-template>
         </mat-stepper> -->
     <mat-stepper [linear]="isLinear" #stepper>
-      <mat-step [stepControl]="firstFormGroup" state="account" class="test">
+      <mat-step [stepControl]="firstFormGroup" state="account">
         <form [formGroup]="firstFormGroup">
           <ng-template matStepLabel>بياناتك</ng-template>
           <mat-form-field appearance="fill">
@@ -128,7 +128,7 @@
       <mat-step [stepControl]="secondFormGroup" state="home">
         <form [formGroup]="secondFormGroup">
           <ng-template matStepLabel>العنوان</ng-template>
-          <p style="font-size: larger">العراق,بغداد</p>
+          <!-- <p style="font-size: larger">العراق,بغداد</p> -->
           <mat-form-field appearance="fill">
             <mat-label>المنطقة</mat-label>
             <input matInput formControlName="secondCtrl1" required />

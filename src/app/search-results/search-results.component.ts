@@ -28,23 +28,5 @@ export class SearchResultsComponent implements OnInit {
         this.products = proTemp;
       }
     });
-
-    // // this.cartsService.viewProd().subscribe((result:any)=>{
-    // //   this.ProdService.viewSearching().subscribe((result: any) => {
-    // //     this.res = result;
-    // //     console.log(this.res);
-    // //   });
-    // // }
-    // const data: any = this.route.snapshot.paramMap;
-    // // const book: any = {
-    // //   Title: data.get('Title'),
-    // //   Author: data.get('Author'),
-    // //   Cover: data.get('Cover'),
-    // //   Price: data.get('Price')
-    // // };
-    // // console.log(book);
-    // // this.book = book;
-    // this.res = data.get();
-    // console.log(data);
   }
 }

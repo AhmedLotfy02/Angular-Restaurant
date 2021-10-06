@@ -2,7 +2,6 @@ import { NgModule } from '@angular/core';
 import { RouterModule, Routes } from '@angular/router';
 import { CategoryDetailsComponent } from './categories/category-details/category-details.component';
 import { HomePageComponent } from './home-page/home-page.component';
-import { OrderComponent } from './order/order.component';
 import { RightSideComponent } from './right-side/right-side.component';
 import { SearchResultsComponent } from './search-results/search-results.component';
 

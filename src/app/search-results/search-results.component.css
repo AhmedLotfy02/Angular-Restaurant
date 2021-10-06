@@ -1,0 +1,141 @@
+@import url("https://fonts.googleapis.com/css2?family=Lalezar&display=swap");
+@import url("https://fonts.googleapis.com/css2?family=Permanent+Marker&display=swap");
+@import url("https://fonts.googleapis.com/css2?family=Amiri&family=Bebas+Neue&family=Libre+Franklin:wght@100&display=swap");
+main {
+    width: 100%;
+    display: grid;
+    grid-template-columns: repeat(3, 1fr);
+    gap: 0px;
+}
+
+.spacer3 {
+    margin-bottom: 1.3em;
+}
+
+.outtergrid {
+    margin-right: 11em;
+}
+
+img {
+    height: 150px;
+    width: 200px;
+    position: relative;
+    left: 20%;
+}
+
+p {
+    padding: 0px;
+    margin: 0px;
+}
+
+.card-title {
+    text-align: center;
+    padding: 10px;
+    font-size: 30px;
+}
+
+.card-body {
+    display: flex;
+    padding: 10px;
+    font-size: 30px;
+    cursor: pointer;
+    position: relative;
+    left: 25%;
+}
+
+.card-body button p {
+    display: inline-block;
+    font-size: 18px;
+    padding: 5px;
+}
+
+.card-body button mat-icon .material-icons {
+    font-size: 18px;
+}
+
+.mat-card {
+    height: auto;
+    width: 50%;
+    margin-left: 200px;
+}
+
+.titleClass {
+    font-family: "Lalezar", cursive;
+    font-size: 30px;
+}
+
+.secondgrid {
+    height: 100%;
+    width: 100%;
+    display: flex;
+    flex-flow: row-reverse wrap;
+    justify-content: space-around;
+}
+
+.spacer2 {
+    margin-left: 10em;
+}
+
+.popupPrice {
+    font-size: 20px;
+    color: #f5790c;
+}
+
+.priceInCard {
+    color: #f5790c;
+}
+
+
+/* 
+.firstRowGrid {
+    display: grid;
+    flex-direction: column;
+}
+
+.favShareGrid {
+    display: flex;
+    flex-direction: row-reverse;
+    gap: 1em;
+} */
+
+
+/* 
+.favShareButton {
+    display: flex;
+    flex-direction: column;
+    gap: 3em;
+} */
+
+
+/* 
+.shadowFlatButton {
+    background-color: rgba(236, 233, 229, 0.288);
+    width: auto;
+    border-radius: 16px;
+} */
+
+
+/* 
+.innerCardMostBottom {
+    font-size: 15px;
+    font-weight: bold;
+    font-family: "Permanent Marker", cursive;
+} */
+
+
+/* 
+.PriceACart {
+    display: flex;
+    flex-direction: column;
+    gap: 3em;
+}
+ */
+
+
+/* 
+.prodtitleincard {
+    margin-top: 0.5em;
+    font-family: "Amiri", serif;
+    font-size: 20px;
+    font-weight: bold;
+} */
