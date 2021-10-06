@@ -1,6 +1,7 @@
 # Angular Restaurant
 
-<img src="https://user-images.githubusercontent.com/76037906/132239254-08b6f0ec-7134-438d-9f4e-34d33ca92c59.jpg" alt="alt text" width="400" height="400">
+![Angular Restaurant (1)](https://user-images.githubusercontent.com/76037906/136150996-dfb3f708-8835-4515-9dbc-16ca6ff32e06.jpg)
+
  
 <h2>Table Of Contents</h2>
 <ul>
