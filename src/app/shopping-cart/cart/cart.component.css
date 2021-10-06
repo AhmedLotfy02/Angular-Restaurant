@@ -96,13 +96,17 @@ button {
     padding: 10px; */
 }
 
-.mat-stepper-horizontal {
-    margin-top: 8px;
-}
 
+/* 
+    .mat-stepper-horizontal {
+        margin-top: 8px;
+    } */
+
+
+/* 
 .mat-form-field {
     margin-top: 12px;
-}
+} */
 
 .buttonStepper {
     margin-top: 1em;
@@ -111,9 +115,13 @@ button {
 }
 
 .iconStepper {
-    background-color: #f5790c;
+    /* background-color: #f5790c; */
     color: white;
     font-size: 200px;
+}
+
+::ng-deep .mat-form-field-underline {
+    display: none;
 }
 
 .mat-step-header::after,

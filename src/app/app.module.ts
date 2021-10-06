@@ -23,7 +23,6 @@ import { HomePageComponent } from './home-page/home-page.component';
 import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
 import { CartComponent } from './shopping-cart/cart/cart.component';
 import { CartDetailsComponent } from './shopping-cart/cart-details/cart-details.component';
-import { ProductDetailsComponent } from './products/product-details/product-details.component';
 import { HttpClientModule } from '@angular/common/http';
 import { NgbModule } from '@ng-bootstrap/ng-bootstrap';
 import { FormsModule, ReactiveFormsModule } from '@angular/forms';
@@ -41,7 +40,6 @@ import { SearchResultsComponent } from './search-results/search-results.componen
     CartComponent,
 
     CartDetailsComponent,
-    ProductDetailsComponent,
     RightSideComponent,
     FilterDialogComponent,
     SearchResultsComponent,

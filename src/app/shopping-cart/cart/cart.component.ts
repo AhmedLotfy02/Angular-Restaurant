@@ -6,6 +6,7 @@ import { NgbModal, ModalDismissReasons } from '@ng-bootstrap/ng-bootstrap';
 import { STEPPER_GLOBAL_OPTIONS } from '@angular/cdk/stepper';
 import { CARTS } from '../mock-cart';
 import { Product } from 'src/app/products/product';
+import { Router } from '@angular/router';
 
 @Component({
   selector: 'cart',
@@ -21,14 +22,15 @@ import { Product } from 'src/app/products/product';
 export class CartComponent implements OnInit {
   carts: Cart[] = [];
   cartTotal = 0;
-product!: Product;
-sign = '';
-  @Input() prodItems!:any;
+  product!: Product;
+  sign = '';
+  @Input() prodItems!: any;
 
   constructor(
     private cartsService: CartsService,
     private _formBuilder: FormBuilder,
-    private modalService: NgbModal
+    private modalService: NgbModal,
+    private router: Router
   ) {}
   closeResult = '';
 
@@ -74,84 +76,63 @@ sign = '';
       thirdCtrl: ['', Validators.required],
     });
 
-
-    this.cartsService.viewProd().subscribe((result:any)=>{
-      if(typeof(result)=="string"){
-      this.sign = result;
-      console.log(this.sign)
+    this.cartsService.viewProd().subscribe((result: any) => {
+      if (typeof result == 'string') {
+        this.sign = result;
+        console.log(this.sign);
       }
-      if(typeof(result)=="object"){
+      if (typeof result == 'object') {
         this.product = result;
-        console.log(this.product)
-        this.addToCart(this.product, this.sign)
+        console.log(this.product);
+        this.addToCart(this.product, this.sign);
       }
-
-
     });
   }
 
-  addToCart(product:Product, sign:string){
+  addToCart(product: Product, sign: string) {
     let prodExists = false;
-    if(sign == '' || sign=='+'){
-      for(let index in this.carts){
-        if( this.carts[index].prodId === product.id ){
+    if (sign == '' || sign == '+') {
+      for (let index in this.carts) {
+        if (this.carts[index].prodId === product.id) {
           this.carts[index].prodQuantity++;
           prodExists = true;
           break;
         }
       }
 
-      if(!prodExists){
+      if (!prodExists) {
         this.carts.push({
-          id:"",
-          prodId:product.id,
-          prodTitle:product.title,
-          prodImg:product.cover,
-          prodPrice:product.price,
-          prodQuantity:1,
+          id: '',
+          prodId: product.id,
+          prodTitle: product.title,
+          prodImg: product.cover,
+          prodPrice: product.price,
+          prodQuantity: 1,
         });
       }
       this.cartTotal = 0;
-      this.carts.forEach(p=>{
+      this.carts.forEach((p) => {
         this.cartTotal += p.prodQuantity * p.prodPrice;
       });
-    }if(sign=='-'){
-      for(var i=0;i<this.carts.length;i++){
-        if(product.title===this.carts[i].prodTitle){
-          if(this.carts[i].prodQuantity===1){
-            this.carts[i].prodQuantity=0;
-            this.carts.splice(i,1);
-          }
-          else{
+    }
+    if (sign == '-') {
+      for (var i = 0; i < this.carts.length; i++) {
+        if (product.title === this.carts[i].prodTitle) {
+          if (this.carts[i].prodQuantity === 1) {
+            this.carts[i].prodQuantity = 0;
+            this.carts.splice(i, 1);
+          } else {
             this.carts[i].prodQuantity--;
           }
         }
       }
-      this.cartTotal=0;
-      for(var j=0;j<this.carts.length;j++){
-        this.cartTotal+=this.carts[j].prodQuantity*this.carts[j].prodPrice;
+      this.cartTotal = 0;
+      for (var j = 0; j < this.carts.length; j++) {
+        this.cartTotal += this.carts[j].prodQuantity * this.carts[j].prodPrice;
       }
-
-    //   for(let index in this.carts){
-    //     if( this.carts[index].prodId === product.id ){
-    //       if(this.carts[index].prodQuantity === 0){
-
-    //           if(product.title===this.carts[index].prodTitle){
-    //             this.carts.splice(index,1);
-    //           }
-
-    //       }else{
-    //         this.carts[index].prodQuantity--;
-    //       }
-    //       prodExists = true;
-
-    //       this.cartTotal = 0;
-    //       this.carts.forEach(p=>{
-    //         this.cartTotal += p.prodQuantity * p.prodPrice;
-    //       });
-    //       break;
-    //     }
-    // }
+    }
   }
+  gotele() {
+    this.router.navigate(['https://web.telegram.org/#/']);
   }
 }
